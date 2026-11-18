@@ -81,6 +81,18 @@ create table if not exists public.lat_grammar_items (
   created_at  timestamptz not null default now()
 );
 
+-- -------------------------------------------------- konjugacija (glagoli)
+-- forms: {"praes":[6 oblika], "impf":[...], "fut":[...], "perf":[...]}, redom 1.-3. lice jednine pa množine.
+create table if not exists public.lat_verbs (
+  id          uuid primary key default gen_random_uuid(),
+  lemma       text unique not null,     -- 1. lice jednine prezenta: "amo"
+  gloss       text not null,            -- "volim"
+  infinitive  text not null,            -- "amare"
+  conj        text not null,            -- '1','2','3','3io','4','irreg'
+  forms       jsonb not null,
+  created_at  timestamptz not null default now()
+);
+
 -- Dodato kasnije: gloss (prevod osnovnog oblika) i forms (svi oblici reči, za ponuđene odgovore).
 alter table public.lat_grammar_items add column if not exists gloss text;
 alter table public.lat_grammar_items add column if not exists forms text[] not null default '{}';
@@ -99,6 +111,7 @@ $$;
 
 -- =================================================== Row Level Security
 alter table public.lat_admins enable row level security;
+alter table public.lat_verbs  enable row level security;
 alter table public.lat_decks          enable row level security;
 alter table public.lat_cards          enable row level security;
 alter table public.lat_progress       enable row level security;
@@ -114,6 +127,11 @@ drop policy if exists "grammar read" on public.lat_grammar_items;
 create policy "decks read"   on public.lat_decks         for select to authenticated using (true);
 create policy "cards read"   on public.lat_cards         for select to authenticated using (true);
 create policy "grammar read" on public.lat_grammar_items for select to authenticated using (true);
+
+drop policy if exists "verbs read"  on public.lat_verbs;
+drop policy if exists "verbs admin" on public.lat_verbs;
+create policy "verbs read"  on public.lat_verbs for select to authenticated using (true);
+create policy "verbs admin" on public.lat_verbs for all to authenticated using (public.lat_is_admin()) with check (public.lat_is_admin());
 
 drop policy if exists "admins read self" on public.lat_admins;
 create policy "admins read self" on public.lat_admins for select to authenticated using (user_id = auth.uid());

@@ -1,0 +1,84 @@
+{
+  "_comment": "Pravilni glagoli: stem = osnova bez nastavka, perf = osnova perfekta. Nepravilni imaju ručno upisane forms (praes, impf, fut, perf; 6 lica).",
+  "regular": [
+    { "lemma": "amo", "gloss": "volim", "inf": "amare", "conj": "1", "stem": "am", "perf": "amav" },
+    { "lemma": "laudo", "gloss": "hvalim", "inf": "laudare", "conj": "1", "stem": "laud", "perf": "laudav" },
+    { "lemma": "voco", "gloss": "zovem", "inf": "vocare", "conj": "1", "stem": "voc", "perf": "vocav" },
+    { "lemma": "porto", "gloss": "nosim", "inf": "portare", "conj": "1", "stem": "port", "perf": "portav" },
+    { "lemma": "laboro", "gloss": "radim", "inf": "laborare", "conj": "1", "stem": "labor", "perf": "laborav" },
+    { "lemma": "ambulo", "gloss": "šetam", "inf": "ambulare", "conj": "1", "stem": "ambul", "perf": "ambulav" },
+
+    { "lemma": "habeo", "gloss": "imam", "inf": "habere", "conj": "2", "stem": "hab", "perf": "habu" },
+    { "lemma": "video", "gloss": "vidim", "inf": "videre", "conj": "2", "stem": "vid", "perf": "vid" },
+    { "lemma": "moneo", "gloss": "opominjem", "inf": "monere", "conj": "2", "stem": "mon", "perf": "monu" },
+    { "lemma": "timeo", "gloss": "bojim se", "inf": "timere", "conj": "2", "stem": "tim", "perf": "timu" },
+    { "lemma": "teneo", "gloss": "držim", "inf": "tenere", "conj": "2", "stem": "ten", "perf": "tenu" },
+    { "lemma": "doceo", "gloss": "učim (nekoga)", "inf": "docere", "conj": "2", "stem": "doc", "perf": "docu" },
+
+    { "lemma": "rego", "gloss": "vladam", "inf": "regere", "conj": "3", "stem": "reg", "perf": "rex" },
+    { "lemma": "duco", "gloss": "vodim", "inf": "ducere", "conj": "3", "stem": "duc", "perf": "dux" },
+    { "lemma": "mitto", "gloss": "šaljem", "inf": "mittere", "conj": "3", "stem": "mitt", "perf": "mis" },
+    { "lemma": "scribo", "gloss": "pišem", "inf": "scribere", "conj": "3", "stem": "scrib", "perf": "scrips" },
+    { "lemma": "lego", "gloss": "čitam", "inf": "legere", "conj": "3", "stem": "leg", "perf": "leg" },
+    { "lemma": "vivo", "gloss": "živim", "inf": "vivere", "conj": "3", "stem": "viv", "perf": "vix" },
+    { "lemma": "vinco", "gloss": "pobeđujem", "inf": "vincere", "conj": "3", "stem": "vinc", "perf": "vic" },
+    { "lemma": "pono", "gloss": "stavljam", "inf": "ponere", "conj": "3", "stem": "pon", "perf": "posu" },
+    { "lemma": "dico", "gloss": "kažem", "inf": "dicere", "conj": "3", "stem": "dic", "perf": "dix" },
+
+    { "lemma": "facio", "gloss": "pravim, činim", "inf": "facere", "conj": "3io", "stem": "fac", "perf": "fec" },
+    { "lemma": "capio", "gloss": "hvatam", "inf": "capere", "conj": "3io", "stem": "cap", "perf": "cep" },
+    { "lemma": "rapio", "gloss": "otimam", "inf": "rapere", "conj": "3io", "stem": "rap", "perf": "rapu" },
+
+    { "lemma": "audio", "gloss": "čujem", "inf": "audire", "conj": "4", "stem": "aud", "perf": "audiv" },
+    { "lemma": "venio", "gloss": "dolazim", "inf": "venire", "conj": "4", "stem": "ven", "perf": "ven" },
+    { "lemma": "scio", "gloss": "znam", "inf": "scire", "conj": "4", "stem": "sc", "perf": "sciv" },
+    { "lemma": "dormio", "gloss": "spavam", "inf": "dormire", "conj": "4", "stem": "dorm", "perf": "dormiv" }
+  ],
+  "irregular": [
+    {
+      "lemma": "sum", "gloss": "jesam", "inf": "esse",
+      "forms": {
+        "praes": ["sum", "es", "est", "sumus", "estis", "sunt"],
+        "impf": ["eram", "eras", "erat", "eramus", "eratis", "erant"],
+        "fut": ["ero", "eris", "erit", "erimus", "eritis", "erunt"],
+        "perf": ["fui", "fuisti", "fuit", "fuimus", "fuistis", "fuerunt"]
+      }
+    },
+    {
+      "lemma": "possum", "gloss": "mogu", "inf": "posse",
+      "forms": {
+        "praes": ["possum", "potes", "potest", "possumus", "potestis", "possunt"],
+        "impf": ["poteram", "poteras", "poterat", "poteramus", "poteratis", "poterant"],
+        "fut": ["potero", "poteris", "poterit", "poterimus", "poteritis", "poterunt"],
+        "perf": ["potui", "potuisti", "potuit", "potuimus", "potuistis", "potuerunt"]
+      }
+    },
+    {
+      "lemma": "eo", "gloss": "idem", "inf": "ire",
+      "forms": {
+        "praes": ["eo", "is", "it", "imus", "itis", "eunt"],
+        "impf": ["ibam", "ibas", "ibat", "ibamus", "ibatis", "ibant"],
+        "fut": ["ibo", "ibis", "ibit", "ibimus", "ibitis", "ibunt"],
+        "perf": ["ii", "isti", "iit", "iimus", "istis", "ierunt"]
+      }
+    },
+    {
+      "lemma": "volo", "gloss": "hoću, želim", "inf": "velle",
+      "forms": {
+        "praes": ["volo", "vis", "vult", "volumus", "vultis", "volunt"],
+        "impf": ["volebam", "volebas", "volebat", "volebamus", "volebatis", "volebant"],
+        "fut": ["volam", "voles", "volet", "volemus", "voletis", "volent"],
+        "perf": ["volui", "voluisti", "voluit", "voluimus", "voluistis", "voluerunt"]
+      }
+    },
+    {
+      "lemma": "fero", "gloss": "nosim, trpim", "inf": "ferre",
+      "forms": {
+        "praes": ["fero", "fers", "fert", "ferimus", "fertis", "ferunt"],
+        "impf": ["ferebam", "ferebas", "ferebat", "ferebamus", "ferebatis", "ferebant"],
+        "fut": ["feram", "feres", "feret", "feremus", "feretis", "ferent"],
+        "perf": ["tuli", "tulisti", "tulit", "tulimus", "tulistis", "tulerunt"]
+      }
+    }
+  ]
+}

@@ -76,6 +76,15 @@ export function Home() {
               </div>
             </Link>
           </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.07 }} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
+            <Link to="/konjugacija" className="deck" data-theme="technical">
+              <span className="deck-icon">🔤</span>
+              <div className="deck-body">
+                <h3>Konjugacija</h3>
+                <p>Ubaci tačan oblik glagola: lice i vreme.</p>
+              </div>
+            </Link>
+          </motion.div>
         </div>
       </main>
     </>

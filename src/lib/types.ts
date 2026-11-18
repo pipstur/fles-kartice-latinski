@@ -36,6 +36,17 @@ export interface GrammarItem {
   forms: string[]
 }
 
+export type Tense = 'praes' | 'impf' | 'fut' | 'perf'
+
+export interface Verb {
+  id: string
+  lemma: string
+  gloss: string
+  infinitive: string
+  conj: string
+  forms: Record<Tense, string[]> // 6 oblika po vremenu: 1.-3. lice jednine, pa množine
+}
+
 export interface Progress {
   card_id: string
   direction: Direction

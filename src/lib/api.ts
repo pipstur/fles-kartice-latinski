@@ -1,7 +1,7 @@
 import { supabase } from './supabase'
 import { today, yesterday } from './srs'
 import { DEFAULT_SETTINGS, DEFAULT_STATS } from './types'
-import type { Card, Deck, GrammarItem, Progress, Settings, Stats } from './types'
+import type { Card, Deck, GrammarItem, Progress, Settings, Stats, Verb } from './types'
 
 function check<T>(res: { data: T | null; error: { message: string } | null }): T | null {
   if (res.error) throw new Error(res.error.message)
@@ -25,6 +25,10 @@ export async function loadProgress(cardIds: string[]): Promise<Progress[]> {
 
 export async function loadGrammar(): Promise<GrammarItem[]> {
   return check(await supabase.from('lat_grammar_items').select('*')) ?? []
+}
+
+export async function loadVerbs(): Promise<Verb[]> {
+  return check(await supabase.from('lat_verbs').select('*')) ?? []
 }
 
 export async function isAdmin(userId: string): Promise<boolean> {

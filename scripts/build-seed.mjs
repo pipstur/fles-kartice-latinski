@@ -50,7 +50,45 @@ for (const l of grammar.lemmas) {
   }
 }
 
+// --------------------------------------------- konjugacija (seed/verbs.json)
+// Nastavci za pravilne glagole, redom 1.-3. lice jednine pa množine.
+const ENDINGS = {
+  1: { praes: ['o', 'as', 'at', 'amus', 'atis', 'ant'], impf: ['abam', 'abas', 'abat', 'abamus', 'abatis', 'abant'], fut: ['abo', 'abis', 'abit', 'abimus', 'abitis', 'abunt'] },
+  2: { praes: ['eo', 'es', 'et', 'emus', 'etis', 'ent'], impf: ['ebam', 'ebas', 'ebat', 'ebamus', 'ebatis', 'ebant'], fut: ['ebo', 'ebis', 'ebit', 'ebimus', 'ebitis', 'ebunt'] },
+  3: { praes: ['o', 'is', 'it', 'imus', 'itis', 'unt'], impf: ['ebam', 'ebas', 'ebat', 'ebamus', 'ebatis', 'ebant'], fut: ['am', 'es', 'et', 'emus', 'etis', 'ent'] },
+  '3io': { praes: ['io', 'is', 'it', 'imus', 'itis', 'iunt'], impf: ['iebam', 'iebas', 'iebat', 'iebamus', 'iebatis', 'iebant'], fut: ['iam', 'ies', 'iet', 'iemus', 'ietis', 'ient'] },
+  4: { praes: ['io', 'is', 'it', 'imus', 'itis', 'iunt'], impf: ['iebam', 'iebas', 'iebat', 'iebamus', 'iebatis', 'iebant'], fut: ['iam', 'ies', 'iet', 'iemus', 'ietis', 'ient'] },
+}
+const PERF_ENDINGS = ['i', 'isti', 'it', 'imus', 'istis', 'erunt']
+
+const verbData = JSON.parse(readFileSync(new URL('../seed/verbs.json', import.meta.url), 'utf8'))
+const verbs = [
+  ...verbData.regular.map((v) => {
+    const e = ENDINGS[v.conj]
+    if (!e) throw new Error(`${v.lemma}: nepoznata konjugacija ${v.conj}`)
+    const make = (list) => list.map((end) => v.stem + end)
+    return {
+      lemma: v.lemma, gloss: v.gloss, inf: v.inf, conj: v.conj,
+      forms: { praes: make(e.praes), impf: make(e.impf), fut: make(e.fut), perf: PERF_ENDINGS.map((end) => v.perf + end) },
+    }
+  }),
+  ...verbData.irregular.map((v) => ({ lemma: v.lemma, gloss: v.gloss, inf: v.inf, conj: 'irreg', forms: v.forms })),
+]
+
+for (const v of verbs) {
+  for (const t of ['praes', 'impf', 'fut', 'perf']) {
+    if (!Array.isArray(v.forms[t]) || v.forms[t].length !== 6) throw new Error(`${v.lemma}: ${t} treba 6 oblika`)
+  }
+  if (v.forms.praes[0] !== v.lemma) throw new Error(`${v.lemma}: 1. lice prezenta je "${v.forms.praes[0]}", ne poklapa se sa lemom`)
+  sql +=
+    `insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)\n` +
+    `values (${q(v.lemma)}, ${q(v.gloss)}, ${q(v.inf)}, ${q(v.conj)}, ${q(JSON.stringify(v.forms))}::jsonb)\n` +
+    `on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,\n` +
+    `  conj = excluded.conj, forms = excluded.forms;\n\n`
+}
+
 writeFileSync(new URL('../supabase/seed.sql', import.meta.url), sql)
+if (process.argv.includes('--show')) for (const v of verbs) console.log(v.lemma.padEnd(8), JSON.stringify(v.forms))
 console.log(
-  `seed.sql: ${decks.length} dekova, ${decks.reduce((n, d) => n + d.cards.length, 0)} kartica, ${sentenceCount} rečenica za padeže`,
+  `seed.sql: ${decks.length} dekova, ${decks.reduce((n, d) => n + d.cards.length, 0)} kartica, ${sentenceCount} rečenica za padeže, ${verbs.length} glagola`,
 )

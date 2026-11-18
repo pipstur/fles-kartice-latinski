@@ -454,3 +454,168 @@ values ('Multos ___ laboramus.', 'dies', 'dies', 'dan', 'acc', 'pl', 'Radimo mno
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('amo', 'volim', 'amare', '1', '{"praes":["amo","amas","amat","amamus","amatis","amant"],"impf":["amabam","amabas","amabat","amabamus","amabatis","amabant"],"fut":["amabo","amabis","amabit","amabimus","amabitis","amabunt"],"perf":["amavi","amavisti","amavit","amavimus","amavistis","amaverunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('laudo', 'hvalim', 'laudare', '1', '{"praes":["laudo","laudas","laudat","laudamus","laudatis","laudant"],"impf":["laudabam","laudabas","laudabat","laudabamus","laudabatis","laudabant"],"fut":["laudabo","laudabis","laudabit","laudabimus","laudabitis","laudabunt"],"perf":["laudavi","laudavisti","laudavit","laudavimus","laudavistis","laudaverunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('voco', 'zovem', 'vocare', '1', '{"praes":["voco","vocas","vocat","vocamus","vocatis","vocant"],"impf":["vocabam","vocabas","vocabat","vocabamus","vocabatis","vocabant"],"fut":["vocabo","vocabis","vocabit","vocabimus","vocabitis","vocabunt"],"perf":["vocavi","vocavisti","vocavit","vocavimus","vocavistis","vocaverunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('porto', 'nosim', 'portare', '1', '{"praes":["porto","portas","portat","portamus","portatis","portant"],"impf":["portabam","portabas","portabat","portabamus","portabatis","portabant"],"fut":["portabo","portabis","portabit","portabimus","portabitis","portabunt"],"perf":["portavi","portavisti","portavit","portavimus","portavistis","portaverunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('laboro', 'radim', 'laborare', '1', '{"praes":["laboro","laboras","laborat","laboramus","laboratis","laborant"],"impf":["laborabam","laborabas","laborabat","laborabamus","laborabatis","laborabant"],"fut":["laborabo","laborabis","laborabit","laborabimus","laborabitis","laborabunt"],"perf":["laboravi","laboravisti","laboravit","laboravimus","laboravistis","laboraverunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('ambulo', 'šetam', 'ambulare', '1', '{"praes":["ambulo","ambulas","ambulat","ambulamus","ambulatis","ambulant"],"impf":["ambulabam","ambulabas","ambulabat","ambulabamus","ambulabatis","ambulabant"],"fut":["ambulabo","ambulabis","ambulabit","ambulabimus","ambulabitis","ambulabunt"],"perf":["ambulavi","ambulavisti","ambulavit","ambulavimus","ambulavistis","ambulaverunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('habeo', 'imam', 'habere', '2', '{"praes":["habeo","habes","habet","habemus","habetis","habent"],"impf":["habebam","habebas","habebat","habebamus","habebatis","habebant"],"fut":["habebo","habebis","habebit","habebimus","habebitis","habebunt"],"perf":["habui","habuisti","habuit","habuimus","habuistis","habuerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('video', 'vidim', 'videre', '2', '{"praes":["video","vides","videt","videmus","videtis","vident"],"impf":["videbam","videbas","videbat","videbamus","videbatis","videbant"],"fut":["videbo","videbis","videbit","videbimus","videbitis","videbunt"],"perf":["vidi","vidisti","vidit","vidimus","vidistis","viderunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('moneo', 'opominjem', 'monere', '2', '{"praes":["moneo","mones","monet","monemus","monetis","monent"],"impf":["monebam","monebas","monebat","monebamus","monebatis","monebant"],"fut":["monebo","monebis","monebit","monebimus","monebitis","monebunt"],"perf":["monui","monuisti","monuit","monuimus","monuistis","monuerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('timeo', 'bojim se', 'timere', '2', '{"praes":["timeo","times","timet","timemus","timetis","timent"],"impf":["timebam","timebas","timebat","timebamus","timebatis","timebant"],"fut":["timebo","timebis","timebit","timebimus","timebitis","timebunt"],"perf":["timui","timuisti","timuit","timuimus","timuistis","timuerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('teneo', 'držim', 'tenere', '2', '{"praes":["teneo","tenes","tenet","tenemus","tenetis","tenent"],"impf":["tenebam","tenebas","tenebat","tenebamus","tenebatis","tenebant"],"fut":["tenebo","tenebis","tenebit","tenebimus","tenebitis","tenebunt"],"perf":["tenui","tenuisti","tenuit","tenuimus","tenuistis","tenuerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('doceo', 'učim (nekoga)', 'docere', '2', '{"praes":["doceo","doces","docet","docemus","docetis","docent"],"impf":["docebam","docebas","docebat","docebamus","docebatis","docebant"],"fut":["docebo","docebis","docebit","docebimus","docebitis","docebunt"],"perf":["docui","docuisti","docuit","docuimus","docuistis","docuerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('rego', 'vladam', 'regere', '3', '{"praes":["rego","regis","regit","regimus","regitis","regunt"],"impf":["regebam","regebas","regebat","regebamus","regebatis","regebant"],"fut":["regam","reges","reget","regemus","regetis","regent"],"perf":["rexi","rexisti","rexit","reximus","rexistis","rexerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('duco', 'vodim', 'ducere', '3', '{"praes":["duco","ducis","ducit","ducimus","ducitis","ducunt"],"impf":["ducebam","ducebas","ducebat","ducebamus","ducebatis","ducebant"],"fut":["ducam","duces","ducet","ducemus","ducetis","ducent"],"perf":["duxi","duxisti","duxit","duximus","duxistis","duxerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('mitto', 'šaljem', 'mittere', '3', '{"praes":["mitto","mittis","mittit","mittimus","mittitis","mittunt"],"impf":["mittebam","mittebas","mittebat","mittebamus","mittebatis","mittebant"],"fut":["mittam","mittes","mittet","mittemus","mittetis","mittent"],"perf":["misi","misisti","misit","misimus","misistis","miserunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('scribo', 'pišem', 'scribere', '3', '{"praes":["scribo","scribis","scribit","scribimus","scribitis","scribunt"],"impf":["scribebam","scribebas","scribebat","scribebamus","scribebatis","scribebant"],"fut":["scribam","scribes","scribet","scribemus","scribetis","scribent"],"perf":["scripsi","scripsisti","scripsit","scripsimus","scripsistis","scripserunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('lego', 'čitam', 'legere', '3', '{"praes":["lego","legis","legit","legimus","legitis","legunt"],"impf":["legebam","legebas","legebat","legebamus","legebatis","legebant"],"fut":["legam","leges","leget","legemus","legetis","legent"],"perf":["legi","legisti","legit","legimus","legistis","legerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('vivo', 'živim', 'vivere', '3', '{"praes":["vivo","vivis","vivit","vivimus","vivitis","vivunt"],"impf":["vivebam","vivebas","vivebat","vivebamus","vivebatis","vivebant"],"fut":["vivam","vives","vivet","vivemus","vivetis","vivent"],"perf":["vixi","vixisti","vixit","viximus","vixistis","vixerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('vinco', 'pobeđujem', 'vincere', '3', '{"praes":["vinco","vincis","vincit","vincimus","vincitis","vincunt"],"impf":["vincebam","vincebas","vincebat","vincebamus","vincebatis","vincebant"],"fut":["vincam","vinces","vincet","vincemus","vincetis","vincent"],"perf":["vici","vicisti","vicit","vicimus","vicistis","vicerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('pono', 'stavljam', 'ponere', '3', '{"praes":["pono","ponis","ponit","ponimus","ponitis","ponunt"],"impf":["ponebam","ponebas","ponebat","ponebamus","ponebatis","ponebant"],"fut":["ponam","pones","ponet","ponemus","ponetis","ponent"],"perf":["posui","posuisti","posuit","posuimus","posuistis","posuerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('dico', 'kažem', 'dicere', '3', '{"praes":["dico","dicis","dicit","dicimus","dicitis","dicunt"],"impf":["dicebam","dicebas","dicebat","dicebamus","dicebatis","dicebant"],"fut":["dicam","dices","dicet","dicemus","dicetis","dicent"],"perf":["dixi","dixisti","dixit","diximus","dixistis","dixerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('facio', 'pravim, činim', 'facere', '3io', '{"praes":["facio","facis","facit","facimus","facitis","faciunt"],"impf":["faciebam","faciebas","faciebat","faciebamus","faciebatis","faciebant"],"fut":["faciam","facies","faciet","faciemus","facietis","facient"],"perf":["feci","fecisti","fecit","fecimus","fecistis","fecerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('capio', 'hvatam', 'capere', '3io', '{"praes":["capio","capis","capit","capimus","capitis","capiunt"],"impf":["capiebam","capiebas","capiebat","capiebamus","capiebatis","capiebant"],"fut":["capiam","capies","capiet","capiemus","capietis","capient"],"perf":["cepi","cepisti","cepit","cepimus","cepistis","ceperunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('rapio', 'otimam', 'rapere', '3io', '{"praes":["rapio","rapis","rapit","rapimus","rapitis","rapiunt"],"impf":["rapiebam","rapiebas","rapiebat","rapiebamus","rapiebatis","rapiebant"],"fut":["rapiam","rapies","rapiet","rapiemus","rapietis","rapient"],"perf":["rapui","rapuisti","rapuit","rapuimus","rapuistis","rapuerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('audio', 'čujem', 'audire', '4', '{"praes":["audio","audis","audit","audimus","auditis","audiunt"],"impf":["audiebam","audiebas","audiebat","audiebamus","audiebatis","audiebant"],"fut":["audiam","audies","audiet","audiemus","audietis","audient"],"perf":["audivi","audivisti","audivit","audivimus","audivistis","audiverunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('venio', 'dolazim', 'venire', '4', '{"praes":["venio","venis","venit","venimus","venitis","veniunt"],"impf":["veniebam","veniebas","veniebat","veniebamus","veniebatis","veniebant"],"fut":["veniam","venies","veniet","veniemus","venietis","venient"],"perf":["veni","venisti","venit","venimus","venistis","venerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('scio', 'znam', 'scire', '4', '{"praes":["scio","scis","scit","scimus","scitis","sciunt"],"impf":["sciebam","sciebas","sciebat","sciebamus","sciebatis","sciebant"],"fut":["sciam","scies","sciet","sciemus","scietis","scient"],"perf":["scivi","scivisti","scivit","scivimus","scivistis","sciverunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('dormio', 'spavam', 'dormire', '4', '{"praes":["dormio","dormis","dormit","dormimus","dormitis","dormiunt"],"impf":["dormiebam","dormiebas","dormiebat","dormiebamus","dormiebatis","dormiebant"],"fut":["dormiam","dormies","dormiet","dormiemus","dormietis","dormient"],"perf":["dormivi","dormivisti","dormivit","dormivimus","dormivistis","dormiverunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('sum', 'jesam', 'esse', 'irreg', '{"praes":["sum","es","est","sumus","estis","sunt"],"impf":["eram","eras","erat","eramus","eratis","erant"],"fut":["ero","eris","erit","erimus","eritis","erunt"],"perf":["fui","fuisti","fuit","fuimus","fuistis","fuerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('possum', 'mogu', 'posse', 'irreg', '{"praes":["possum","potes","potest","possumus","potestis","possunt"],"impf":["poteram","poteras","poterat","poteramus","poteratis","poterant"],"fut":["potero","poteris","poterit","poterimus","poteritis","poterunt"],"perf":["potui","potuisti","potuit","potuimus","potuistis","potuerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('eo', 'idem', 'ire', 'irreg', '{"praes":["eo","is","it","imus","itis","eunt"],"impf":["ibam","ibas","ibat","ibamus","ibatis","ibant"],"fut":["ibo","ibis","ibit","ibimus","ibitis","ibunt"],"perf":["ii","isti","iit","iimus","istis","ierunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('volo', 'hoću, želim', 'velle', 'irreg', '{"praes":["volo","vis","vult","volumus","vultis","volunt"],"impf":["volebam","volebas","volebat","volebamus","volebatis","volebant"],"fut":["volam","voles","volet","volemus","voletis","volent"],"perf":["volui","voluisti","voluit","voluimus","voluistis","voluerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+
+insert into public.lat_verbs (lemma, gloss, infinitive, conj, forms)
+values ('fero', 'nosim, trpim', 'ferre', 'irreg', '{"praes":["fero","fers","fert","ferimus","fertis","ferunt"],"impf":["ferebam","ferebas","ferebat","ferebamus","ferebatis","ferebant"],"fut":["feram","feres","feret","feremus","feretis","ferent"],"perf":["tuli","tulisti","tulit","tulimus","tulistis","tulerunt"]}'::jsonb)
+on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
+  conj = excluded.conj, forms = excluded.forms;
+

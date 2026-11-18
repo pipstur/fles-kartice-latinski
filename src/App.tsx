@@ -1,6 +1,7 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AuthProvider, useAuth } from './auth'
 import { configured } from './lib/supabase'
+import { Conjugation } from './pages/Conjugation'
 import { Editor } from './pages/Editor'
 import { Grammar } from './pages/Grammar'
 import { Home } from './pages/Home'
@@ -17,6 +18,7 @@ function Gate() {
       <Route path="/" element={<Home />} />
       <Route path="/dek/:slug" element={<Study />} />
       <Route path="/padezi" element={<Grammar />} />
+      <Route path="/konjugacija" element={<Conjugation />} />
       <Route path="/uredi" element={<Editor />} />
       <Route path="/podesavanja" element={<SettingsPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
