@@ -88,7 +88,8 @@ export function Editor() {
       .split('\n')
       .map((l) => l.trim())
       .filter(Boolean)
-      .map((l) => l.split(/\t|;/).map((s) => s.trim()))
+      // iz Excela/Sheets-a dolazi sa tabovima (tada ; ostaje deo teksta), inače razdvaja ;
+      .map((l) => (l.includes('\t') ? l.split('\t') : l.split(';')).map((s) => s.trim()))
       .filter((p) => p[0] && p[1])
       .map((p) => toInput({ latin: p[0], serbian: p[1], note: p[2] ?? '', example: '', symbol: p[3] ?? '' }))
     if (rows.length === 0) return setMsg({ kind: 'error', text: 'Nema ispravnih redova (treba: latinski ; srpski).' })

@@ -1,0 +1,102 @@
+sum ; jesam, postojim ; inf. esse, nepravilan
+possum ; mogu ; inf. posse, nepravilan
+volo ; hoću, želim ; inf. velle, nepravilan
+nolo ; neću ; inf. nolle, nepravilan
+malo ; radije hoću ; inf. malle, nepravilan
+fero ; nosim, trpim ; inf. ferre, nepravilan
+eo ; idem ; inf. ire, nepravilan
+fio ; postajem, biva se ; inf. fieri, nepravilan
+edo ; jedem ; inf. edere ili esse, nepravilan
+adsum ; prisutan sam ; inf. adesse, nepravilan
+habeo ; imam ; inf. habere, 2. konjugacija
+teneo ; držim ; inf. tenere, 2. konjugacija
+video ; vidim ; inf. videre, 2. konjugacija
+moveo ; pokrećem ; inf. movere, 2. konjugacija
+timeo ; bojim se ; inf. timere, 2. konjugacija
+debeo ; dugujem, moram ; inf. debere, 2. konjugacija
+doceo ; učim nekoga, poučavam ; inf. docere, 2. konjugacija
+moneo ; opominjem, savetujem ; inf. monere, 2. konjugacija
+iubeo ; naređujem ; inf. iubere, 2. konjugacija
+maneo ; ostajem ; inf. manere, 2. konjugacija
+sedeo ; sedim ; inf. sedere, 2. konjugacija
+respondeo ; odgovaram ; inf. respondere, 2. konjugacija
+rideo ; smejem se ; inf. ridere, 2. konjugacija
+pareo ; povinujem se, pojavljujem se ; inf. parere, 2. konjugacija
+iaceo ; ležim ; inf. iacere, 2. konjugacija (ne mešati sa iacio)
+fleo ; plačem ; inf. flere, 2. konjugacija
+do ; dajem ; inf. dare, 1. konjugacija
+amo ; volim ; inf. amare, 1. konjugacija
+laudo ; hvalim ; inf. laudare, 1. konjugacija
+voco ; zovem ; inf. vocare, 1. konjugacija
+porto ; nosim ; inf. portare, 1. konjugacija
+laboro ; radim ; inf. laborare, 1. konjugacija
+ambulo ; šetam ; inf. ambulare, 1. konjugacija
+navigo ; plovim ; inf. navigare, 1. konjugacija
+pugno ; borim se ; inf. pugnare, 1. konjugacija
+rogo ; pitam, molim ; inf. rogare, 1. konjugacija
+puto ; mislim, smatram ; inf. putare, 1. konjugacija
+cogito ; mislim, razmišljam ; inf. cogitare, 1. konjugacija
+sto ; stojim ; inf. stare, 1. konjugacija
+paro ; pripremam ; inf. parare, 1. konjugacija
+servo ; čuvam, spasavam ; inf. servare, 1. konjugacija
+iuvo ; pomažem ; inf. iuvare, 1. konjugacija
+clamo ; vičem ; inf. clamare, 1. konjugacija
+spero ; nadam se ; inf. sperare, 1. konjugacija
+creo ; stvaram ; inf. creare, 1. konjugacija
+aedifico ; gradim ; inf. aedificare, 1. konjugacija
+neco ; ubijam ; inf. necare, 1. konjugacija
+lavo ; perem ; inf. lavare, 1. konjugacija
+rego ; vladam ; inf. regere, 3. konjugacija
+duco ; vodim ; inf. ducere, 3. konjugacija
+pono ; stavljam ; inf. ponere, 3. konjugacija
+mitto ; šaljem ; inf. mittere, 3. konjugacija
+dico ; kažem ; inf. dicere, 3. konjugacija
+scribo ; pišem ; inf. scribere, 3. konjugacija
+lego ; čitam, biram ; inf. legere, 3. konjugacija
+vivo ; živim ; inf. vivere, 3. konjugacija
+vinco ; pobeđujem ; inf. vincere, 3. konjugacija
+gero ; nosim, vodim (rat) ; inf. gerere, 3. konjugacija
+curro ; trčim ; inf. currere, 3. konjugacija
+peto ; tražim, napadam ; inf. petere, 3. konjugacija
+quaero ; tražim, pitam ; inf. quaerere, 3. konjugacija
+credo ; verujem ; inf. credere, 3. konjugacija
+cognosco ; upoznajem, saznajem ; inf. cognoscere, 3. konjugacija
+intellego ; razumem ; inf. intellegere, 3. konjugacija
+relinquo ; ostavljam ; inf. relinquere, 3. konjugacija
+perdo ; gubim, upropašćujem ; inf. perdere, 3. konjugacija
+defendo ; branim ; inf. defendere, 3. konjugacija
+cano ; pevam ; inf. canere, 3. konjugacija
+ago ; činim, delam, vodim ; inf. agere, 3. konjugacija
+colo ; obrađujem, gajim, poštujem ; inf. colere, 3. konjugacija
+cado ; padam ; inf. cadere, 3. konjugacija
+surgo ; ustajem ; inf. surgere, 3. konjugacija
+sumo ; uzimam ; inf. sumere, 3. konjugacija
+vendo ; prodajem ; inf. vendere, 3. konjugacija
+emo ; kupujem ; inf. emere, 3. konjugacija
+solvo ; razvezujem, rastvaram ; inf. solvere, 3. konjugacija
+iungo ; spajam ; inf. iungere, 3. konjugacija
+dimitto ; otpuštam ; inf. dimittere, 3. konjugacija
+trado ; predajem ; inf. tradere, 3. konjugacija
+bibo ; pijem ; inf. bibere, 3. konjugacija
+cogo ; primoravam, skupljam ; inf. cogere, 3. konjugacija
+facio ; pravim, činim ; inf. facere, 3. konjugacija (-io)
+capio ; hvatam, uzimam ; inf. capere, 3. konjugacija (-io)
+accipio ; primam ; inf. accipere, 3. konjugacija (-io)
+rapio ; otimam ; inf. rapere, 3. konjugacija (-io)
+fugio ; bežim ; inf. fugere, 3. konjugacija (-io)
+iacio ; bacam ; inf. iacere, 3. konjugacija (-io)
+incipio ; počinjem ; inf. incipere, 3. konjugacija (-io)
+interficio ; ubijam ; inf. interficere, 3. konjugacija (-io)
+venio ; dolazim ; inf. venire, 4. konjugacija
+audio ; čujem, slušam ; inf. audire, 4. konjugacija
+scio ; znam ; inf. scire, 4. konjugacija
+sentio ; osećam ; inf. sentire, 4. konjugacija
+dormio ; spavam ; inf. dormire, 4. konjugacija
+invenio ; nalazim ; inf. invenire, 4. konjugacija
+aperio ; otvaram ; inf. aperire, 4. konjugacija
+munio ; utvrđujem ; inf. munire, 4. konjugacija
+loquor ; govorim ; inf. loqui, deponentni glagol
+sequor ; pratim, sledim ; inf. sequi, deponentni glagol
+morior ; umirem ; inf. mori, deponentni glagol
+nascor ; rađam se ; inf. nasci, deponentni glagol
+utor ; koristim ; inf. uti, deponentni glagol (sa ablativom)
