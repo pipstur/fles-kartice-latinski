@@ -1,7 +1,7 @@
-mercurius ; živa, Merkur ; m., gen. mercurii – i planeta i metal ; ☿
-hydrargyrum ; živa ; n., gen. hydrargyri – grčko „vodeno srebro“
-cinnabaris ; cinabarit, cinober ; f., gen. cinnabaris – živin sulfid ; 🜓
-minium ; minijum, crveno olovo ; n., gen. minii – ranije se tako zvao i cinober
+mercurius ; živa, Merkur ; m., gen. mercurii – i planeta i metal, a u klasičnom latinskom samo bog Merkur ; ☿
+hydrargyrum ; živa ; n., gen. hydrargyri – grčko „vodeno srebro“, klasični oblik je hydrargyrus m. (Plinije)
+cinnabaris ; cinabarit, cinober ; f., gen. cinnabaris – živin sulfid u alhemiji, a kod Plinija smola zmajevca ; 🜓
+minium ; minijum, crveno olovo ; n., gen. minii – kod klasičnih autora i cinober i crveno olovo
 lithargyrum ; glet ; n., gen. lithargyri – olovni oksid
 cerussa ; olovno belilo ; f., gen. cerussae
 nitrum ; šalitra ; n., gen. nitri – u antici soda, kasnije šalitra ; 🜕
@@ -28,12 +28,12 @@ sanguis draconis ; zmajeva krv ; crvena smola
 aqua vitae ; voda života ; alkohol dobijen destilacijom ; 🜈
 aqua ardens ; goruća voda ; raniji naziv za alkohol
 spiritus vini ; vinski špiritus ; alkohol, isparljiva suština vina
-regulus ; regulus ; m., gen. reguli – metal izdvojen topljenjem iz rude, doslovno „kraljić“ ; 🜲
+regulus ; regulus ; m., gen. reguli – u alhemiji metal izdvojen topljenjem iz rude, a klasično „kraljić“, mali vladar ; 🜲
 crocus Martis ; gvozdeni šafran ; gvožđe-oksid, rđa ; 🜞
 vas hermeticum ; hermetički zatvorena posuda ; odatle izraz „hermetički“
 ovum philosophicum ; filozofsko jaje ; sud u kom se izvodi Veliko delo
 cucurbita ; donji deo alembika ; f., gen. cucurbitae – doslovno „tikva“
-phiala ; bočica ; f., gen. phialae
+phiala ; bočica, plitka posuda ; f., gen. phialae – kod klasičnih autora plitka posuda za piće, u alhemiji bočica
 mortarium ; avan ; n., gen. mortarii
 pistillum ; tučak ; n., gen. pistilli
 balneum Mariae ; Marijino kupatilo, vodeno kupatilo ; n., gen. balnei Mariae ; 🝫
@@ -42,10 +42,10 @@ fornax ; peć ; f., gen. fornacis
 follis ; meh ; m., gen. follis – za raspirivanje vatre
 forceps ; klešta ; m./f., gen. forcipis
 filtrum ; filter ; n., gen. filtri
-lutum ; glina, kit ; n., gen. luti – lutum sapientiae je „kit mudrosti“ za zaptivanje
+lutum ; blato, glina, kit ; n., gen. luti – lutum sapientiae je „kit mudrosti“ za zaptivanje
 pelicanus ; pelikan ; m., gen. pelicani – sud za cirkulaciju
-caduceus ; kaduceus ; m., gen. caduci – Hermesov štap sa dve zmije ; 🝐
-digestio ; digestija ; f., gen. digestionis – blago dugotrajno zagrevanje
+caduceus ; kaduceus ; m., gen. caduci – Hermesov štap sa dve zmije, klasično se češće javlja caduceum n. ; 🝐
+digestio ; digestija ; f., gen. digestionis – u alhemiji blago dugotrajno zagrevanje, a klasično „varenje“
 cohobatio ; kohobacija ; f., gen. cohobationis – ponovljena destilacija
 circulatio ; cirkulacija ; f., gen. circulationis
 extractio ; izdvajanje ; f., gen. extractionis
@@ -59,7 +59,7 @@ congelatio ; ukrućivanje ; f., gen. congelationis
 liquefactio ; topljenje ; f., gen. liquefactionis
 amalgama ; amalgam ; legura žive sa drugim metalom ; 🝛
 purificatio ; pročišćavanje ; f., gen. purificationis ; 🝣
-praecipitatio ; taloženje ; f., gen. praecipitationis ; 🝟
+praecipitatio ; taloženje ; f., gen. praecipitationis – klasično „strmoglavljenje“, hemijsko značenje je kasnije ; 🝟
 tria prima ; tri prva principa ; sumpor, živa i so (kod Paracelzusa)
 microcosmus ; mikrokosmos ; m., gen. microcosmi – čovek kao slika sveta
 macrocosmus ; makrokosmos ; m., gen. macrocosmi – vasiona
