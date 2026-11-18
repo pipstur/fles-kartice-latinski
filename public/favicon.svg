@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#58a700"/>
+  <rect x="96" y="120" width="320" height="272" rx="40" fill="#ffffff"/>
+  <path d="M96 352h320v0a40 40 0 0 1-40 40H136a40 40 0 0 1-40-40z" fill="#e5e5e0"/>
+  <text x="256" y="322" font-family="Georgia, 'Times New Roman', serif" font-size="230" font-weight="700" text-anchor="middle" fill="#3c7d00">L</text>
+  <circle cx="392" cy="144" r="30" fill="#ffc800"/>
+</svg>
