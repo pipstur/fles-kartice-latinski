@@ -44,6 +44,9 @@
   --heading-font: 'Georgia', 'Nunito', serif;
 }
 
+/* Boja teksta mora da prati temu, a ne samo body (inače je tekst tamnim na tamnoj temi). */
+[data-theme] { color: var(--text); }
+
 * { box-sizing: border-box; }
 html, body, #root { min-height: 100%; }
 body {
@@ -176,5 +179,52 @@ input[type='range'] { width: 100%; accent-color: var(--primary); }
 .toggle { display: flex; align-items: center; gap: 12px; font-weight: 800; cursor: pointer; }
 .toggle input { width: 22px; height: 22px; accent-color: var(--primary); }
 .status { min-height: 1.4em; }
+
+/* ---------- Vežba padeža ---------- */
+.grammar { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; padding: 8px 0; }
+.dir-label.static { position: static; }
+.sentence { font-family: var(--heading-font); font-size: clamp(1.6rem, 6vw, 2.4rem); font-weight: 800; line-height: 1.6; margin: 0; overflow-wrap: anywhere; }
+.blank {
+  display: inline-block; min-width: 4.5ch; padding: 0 10px; margin: 0 4px; border-bottom: 4px solid var(--border);
+  border-radius: 8px 8px 0 0; color: var(--primary-dark);
+}
+.blank.right { border-color: #58cc02; background: #e4f8cf; color: #3c8c00; }
+.blank.wrong { border-color: #ff4b4b; background: #ffe0e0; color: #c62828; }
+.lemma-line { margin: 0; color: var(--muted); font-size: 1.05rem; }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 420px; }
+.btn.opt { text-transform: none; letter-spacing: 0; font-size: 1.15rem; padding: 16px 8px; }
+.type-form { display: flex; gap: 10px; width: 100%; max-width: 420px; }
+.type-form .field { flex: 1; }
+.feedback {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px;
+  border-radius: 20px; font-weight: 700;
+}
+.feedback div { display: grid; gap: 2px; }
+.feedback span { font-size: 0.9rem; font-weight: 600; opacity: 0.85; }
+.feedback.right { background: #d7ffb8; color: #3c8c00; }
+.feedback.wrong { background: #ffdfe0; color: #c62828; }
+
+/* ---------- Uređivanje ---------- */
+.section-gap { margin-top: 36px; }
+.field {
+  padding: 12px 14px; border-radius: 12px; border: 2px solid var(--border); background: var(--surface);
+  color: var(--text); font: inherit; font-size: 1rem; width: 100%; min-width: 0;
+}
+.field:focus { outline: none; border-color: var(--primary); }
+.field.short { width: 90px; }
+.box { margin-top: 12px; padding: 12px 14px; border: 2px dashed var(--border); border-radius: 14px; }
+.box summary { cursor: pointer; font-weight: 800; }
+.box textarea { margin: 10px 0; font-family: inherit; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.row .field { flex: 1 1 140px; width: auto; }
+.form-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.card-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.card-list li { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--surface); border: 2px solid var(--border); border-radius: 14px; }
+.card-list li > div { flex: 1; min-width: 0; }
+.card-list small { display: block; color: var(--muted); font-weight: 600; }
+.card-list .sym { width: 32px; text-align: center; font-size: 1.4rem; color: var(--primary-dark); font-family: 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', sans-serif; }
+.card-list li.editing { display: block; }
+.code { background: var(--border); padding: 12px; border-radius: 12px; overflow-x: auto; font-size: 0.85rem; }
+select.field { appearance: auto; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

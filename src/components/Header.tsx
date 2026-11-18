@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../auth'
-import { loadStats } from '../lib/api'
+import { isAdmin, loadStats } from '../lib/api'
 import { supabase } from '../lib/supabase'
 import { DEFAULT_STATS } from '../lib/types'
 import type { Stats } from '../lib/types'
@@ -9,9 +9,12 @@ import type { Stats } from '../lib/types'
 export function Header() {
   const { session } = useAuth()
   const [stats, setStats] = useState<Stats>(DEFAULT_STATS)
+  const [admin, setAdmin] = useState(false)
 
   useEffect(() => {
-    if (session) loadStats(session.user.id).then(setStats).catch(() => {})
+    if (!session) return
+    loadStats(session.user.id).then(setStats).catch(() => {})
+    isAdmin(session.user.id).then(setAdmin).catch(() => {})
   }, [session])
 
   return (
@@ -23,6 +26,7 @@ export function Header() {
       <div className="topbar-right">
         <span className="pill" title="Dnevna serija">🔥 {stats.streak}</span>
         <span className="pill" title="Poeni">⭐ {stats.xp}</span>
+        {admin && <Link to="/uredi" className="icon-btn" aria-label="Uredi kartice">✏️</Link>}
         <Link to="/podesavanja" className="icon-btn" aria-label="Podešavanja">⚙️</Link>
         <button className="icon-btn" aria-label="Odjava" onClick={() => supabase.auth.signOut()}>⎋</button>
       </div>

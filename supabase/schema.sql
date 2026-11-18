@@ -81,7 +81,24 @@ create table if not exists public.lat_grammar_items (
   created_at  timestamptz not null default now()
 );
 
+-- Dodato kasnije: gloss (prevod osnovnog oblika) i forms (svi oblici reči, za ponuđene odgovore).
+alter table public.lat_grammar_items add column if not exists gloss text;
+alter table public.lat_grammar_items add column if not exists forms text[] not null default '{}';
+create unique index if not exists lat_grammar_sentence_uq on public.lat_grammar_items(sentence);
+
+-- ------------------------------------------------------------------ admini
+-- Samo admini mogu da dodaju/menjaju/brišu dekove, kartice i rečenice kroz aplikaciju.
+create table if not exists public.lat_admins (
+  user_id uuid primary key references auth.users(id) on delete cascade
+);
+
+create or replace function public.lat_is_admin() returns boolean
+language sql stable security definer set search_path = public as $$
+  select exists (select 1 from public.lat_admins where user_id = auth.uid())
+$$;
+
 -- =================================================== Row Level Security
+alter table public.lat_admins enable row level security;
 alter table public.lat_decks          enable row level security;
 alter table public.lat_cards          enable row level security;
 alter table public.lat_progress       enable row level security;
@@ -97,6 +114,16 @@ drop policy if exists "grammar read" on public.lat_grammar_items;
 create policy "decks read"   on public.lat_decks         for select to authenticated using (true);
 create policy "cards read"   on public.lat_cards         for select to authenticated using (true);
 create policy "grammar read" on public.lat_grammar_items for select to authenticated using (true);
+
+drop policy if exists "admins read self" on public.lat_admins;
+create policy "admins read self" on public.lat_admins for select to authenticated using (user_id = auth.uid());
+
+drop policy if exists "decks admin"   on public.lat_decks;
+drop policy if exists "cards admin"   on public.lat_cards;
+drop policy if exists "grammar admin" on public.lat_grammar_items;
+create policy "decks admin"   on public.lat_decks         for all to authenticated using (public.lat_is_admin()) with check (public.lat_is_admin());
+create policy "cards admin"   on public.lat_cards         for all to authenticated using (public.lat_is_admin()) with check (public.lat_is_admin());
+create policy "grammar admin" on public.lat_grammar_items for all to authenticated using (public.lat_is_admin()) with check (public.lat_is_admin());
 
 -- Lični podaci: svako vidi i menja samo svoje.
 drop policy if exists "progress own"  on public.lat_progress;

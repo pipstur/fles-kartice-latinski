@@ -18,8 +18,8 @@ export function Flashcard({ item, flipped, onFlip }: Props) {
       className="flip"
       role="button"
       tabIndex={0}
-      aria-label={flipped ? 'Kartica, odgovor prikazan' : 'Okreni karticu'}
-      onClick={() => !flipped && onFlip()}
+      aria-label={flipped ? 'Kartica, odgovor prikazan. Okreni nazad' : 'Okreni karticu'}
+      onClick={onFlip}
     >
       <motion.div
         className="flip-inner"
@@ -40,6 +40,7 @@ export function Flashcard({ item, flipped, onFlip }: Props) {
           <span className="word">{answer}</span>
           {card.note && <span className="note">{card.note}</span>}
           {card.example && <span className="example">{card.example}</span>}
+          <span className="tap-hint">Dodirni da okreneš nazad</span>
         </div>
       </motion.div>
     </div>

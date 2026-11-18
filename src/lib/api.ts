@@ -1,7 +1,7 @@
 import { supabase } from './supabase'
 import { today, yesterday } from './srs'
 import { DEFAULT_SETTINGS, DEFAULT_STATS } from './types'
-import type { Card, Deck, Progress, Settings, Stats } from './types'
+import type { Card, Deck, GrammarItem, Progress, Settings, Stats } from './types'
 
 function check<T>(res: { data: T | null; error: { message: string } | null }): T | null {
   if (res.error) throw new Error(res.error.message)
@@ -21,6 +21,34 @@ export async function loadCards(deckId?: string): Promise<Card[]> {
 export async function loadProgress(cardIds: string[]): Promise<Progress[]> {
   if (cardIds.length === 0) return []
   return check(await supabase.from('lat_progress').select('*').in('card_id', cardIds)) ?? []
+}
+
+export async function loadGrammar(): Promise<GrammarItem[]> {
+  return check(await supabase.from('lat_grammar_items').select('*')) ?? []
+}
+
+export async function isAdmin(userId: string): Promise<boolean> {
+  const row = check(await supabase.from('lat_admins').select('user_id').eq('user_id', userId).maybeSingle())
+  return Boolean(row)
+}
+
+export type CardInput = Pick<Card, 'latin' | 'serbian' | 'note' | 'example' | 'symbol'>
+
+export async function upsertCards(deckId: string, startPosition: number, cards: CardInput[]) {
+  const rows = cards.map((c, i) => ({ ...c, deck_id: deckId, position: startPosition + i }))
+  check(await supabase.from('lat_cards').upsert(rows, { onConflict: 'deck_id,latin' }))
+}
+
+export async function updateCard(id: string, patch: CardInput) {
+  check(await supabase.from('lat_cards').update(patch).eq('id', id))
+}
+
+export async function deleteCard(id: string) {
+  check(await supabase.from('lat_cards').delete().eq('id', id))
+}
+
+export async function createDeck(deck: Omit<Deck, 'id'>) {
+  check(await supabase.from('lat_decks').insert(deck))
 }
 
 export async function loadAllProgress(): Promise<Progress[]> {

@@ -24,6 +24,18 @@ export interface Card {
   position: number
 }
 
+export interface GrammarItem {
+  id: string
+  sentence: string // "Puer ___ videt."
+  answer: string
+  lemma: string
+  gloss: string | null
+  grammar_case: 'nom' | 'gen' | 'dat' | 'acc' | 'abl' | 'voc'
+  number: 'sg' | 'pl'
+  translation: string | null
+  forms: string[]
+}
+
 export interface Progress {
   card_id: string
   direction: Direction

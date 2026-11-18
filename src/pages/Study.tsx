@@ -5,7 +5,7 @@ import confetti from 'canvas-confetti'
 import { Flashcard } from '../components/Flashcard'
 import { useAuth } from '../auth'
 import { addStudy, loadCards, loadDecks, loadProgress, loadSettings, saveProgress } from '../lib/api'
-import { buildQueue, newProgress, schedule } from '../lib/srs'
+import { buildQueue, newProgress, requeue, schedule } from '../lib/srs'
 import type { Item } from '../lib/srs'
 import { play } from '../lib/sound'
 import type { Card, Deck, Grade, Progress, Settings, Stats } from '../lib/types'
@@ -33,7 +33,8 @@ export function Study() {
   const [total, setTotal] = useState(0)
   const [answered, setAnswered] = useState(0)
   const [xp, setXp] = useState(0)
-  const [flipped, setFlipped] = useState(false)
+  const [flipped, setFlipped] = useState(false) // koja strana je trenutno okrenuta
+  const [revealed, setRevealed] = useState(false) // da li je odgovor bar jednom viđen
   const [stats, setStats] = useState<Stats | null>(null)
   const saved = useRef(false)
 
@@ -44,6 +45,7 @@ export function Study() {
     setAnswered(0)
     setXp(0)
     setFlipped(false)
+    setRevealed(false)
     setStats(null)
     saved.current = false
   }, [])
@@ -76,26 +78,33 @@ export function Study() {
       setXp((x) => x + XP[g])
       setAnswered((n) => n + 1)
       setFlipped(false)
+      setRevealed(false)
       setQueue((q) => {
         const [head, ...rest] = q
-        return g === 0 ? [...rest, { ...head, progress: next }] : rest
+        return g === 0 ? requeue(rest, { ...head, progress: next }) : rest
       })
     },
     [current, settings, userId],
   )
 
-  // Tastatura: razmak/Enter okreće, 1-4 ocenjuje.
+  // Kartica se može okretati koliko god puta hoćeš.
+  const flip = useCallback(() => {
+    setFlipped((f) => !f)
+    setRevealed(true)
+  }, [])
+
+  // Tastatura: razmak/Enter okreće, 1-4 ocenjuje (tek kad je odgovor viđen).
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (!current) return
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault()
-        if (!flipped) setFlipped(true)
-      } else if (flipped && ['1', '2', '3', '4'].includes(e.key)) grade((Number(e.key) - 1) as Grade)
+        flip()
+      } else if (revealed && ['1', '2', '3', '4'].includes(e.key)) grade((Number(e.key) - 1) as Grade)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [current, flipped, grade])
+  }, [current, revealed, grade, flip])
 
   // Kraj sesije: upiši XP i seriju, pa konfete.
   useEffect(() => {
@@ -137,13 +146,13 @@ export function Study() {
                 exit={{ opacity: 0, x: -60 }}
                 transition={{ duration: 0.18 }}
               >
-                <Flashcard item={current} flipped={flipped} onFlip={() => setFlipped(true)} />
+                <Flashcard item={current} flipped={flipped} onFlip={flip} />
               </motion.div>
             </AnimatePresence>
           </div>
 
           <div className="study-actions">
-            {flipped ? (
+            {revealed ? (
               <div className="grades">
                 {GRADES.map((g) => (
                   <button key={g.grade} className={`btn grade ${g.cls}`} onClick={() => grade(g.grade)}>
@@ -153,7 +162,7 @@ export function Study() {
                 ))}
               </div>
             ) : (
-              <button className="btn primary wide" onClick={() => setFlipped(true)}>Okreni</button>
+              <button className="btn primary wide" onClick={flip}>Okreni</button>
             )}
           </div>
         </>

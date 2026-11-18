@@ -1,0 +1,178 @@
+{
+  "_comment": "forms: nom, gen, dat, acc, abl jednine pa nom, gen, dat, acc, abl množine. Rečenice: ___ je mesto za oblik reči.",
+  "lemmas": [
+    {
+      "lemma": "puella", "gloss": "devojčica",
+      "forms": ["puella", "puellae", "puellae", "puellam", "puella", "puellae", "puellarum", "puellis", "puellas", "puellis"],
+      "sentences": [
+        { "text": "___ in horto ambulat.", "case": "nom", "number": "sg", "tr": "Devojčica šeta u vrtu." },
+        { "text": "Pater ___ donum dat.", "case": "dat", "number": "sg", "tr": "Otac daje dar devojčici." },
+        { "text": "Puer ___ videt.", "case": "acc", "number": "sg", "tr": "Dečak vidi devojčicu." }
+      ]
+    },
+    {
+      "lemma": "rosa", "gloss": "ruža",
+      "forms": ["rosa", "rosae", "rosae", "rosam", "rosa", "rosae", "rosarum", "rosis", "rosas", "rosis"],
+      "sentences": [
+        { "text": "___ pulchra est.", "case": "nom", "number": "sg", "tr": "Ruža je lepa." },
+        { "text": "Puella ___ amat.", "case": "acc", "number": "pl", "tr": "Devojčica voli ruže." }
+      ]
+    },
+    {
+      "lemma": "aqua", "gloss": "voda",
+      "forms": ["aqua", "aquae", "aquae", "aquam", "aqua", "aquae", "aquarum", "aquis", "aquas", "aquis"],
+      "sentences": [
+        { "text": "Piscis in ___ natat.", "case": "abl", "number": "sg", "tr": "Riba pliva u vodi." },
+        { "text": "Copia ___ magna est.", "case": "gen", "number": "sg", "tr": "Ima mnogo vode (obilje vode je veliko)." }
+      ]
+    },
+    {
+      "lemma": "via", "gloss": "put, ulica",
+      "forms": ["via", "viae", "viae", "viam", "via", "viae", "viarum", "viis", "vias", "viis"],
+      "sentences": [
+        { "text": "In ___ ambulo.", "case": "abl", "number": "sg", "tr": "Hodam putem (po putu)." }
+      ]
+    },
+    {
+      "lemma": "terra", "gloss": "zemlja",
+      "forms": ["terra", "terrae", "terrae", "terram", "terra", "terrae", "terrarum", "terris", "terras", "terris"],
+      "sentences": [
+        { "text": "Nautae ___ vident.", "case": "acc", "number": "sg", "tr": "Mornari vide zemlju." }
+      ]
+    },
+    {
+      "lemma": "amicus", "gloss": "prijatelj",
+      "forms": ["amicus", "amici", "amico", "amicum", "amico", "amici", "amicorum", "amicis", "amicos", "amicis"],
+      "sentences": [
+        { "text": "Domus ___ magna est.", "case": "gen", "number": "sg", "tr": "Prijateljeva kuća je velika." },
+        { "text": "Puella rosam ___ dat.", "case": "dat", "number": "sg", "tr": "Devojčica daje ružu prijatelju." },
+        { "text": "Puella cum ___ ambulat.", "case": "abl", "number": "sg", "tr": "Devojčica šeta sa prijateljem." },
+        { "text": "Cum ___ in silva ambulo.", "case": "abl", "number": "pl", "tr": "Sa prijateljima šetam u šumi." },
+        { "text": "Nomina ___ scio.", "case": "gen", "number": "pl", "tr": "Znam imena prijatelja." }
+      ]
+    },
+    {
+      "lemma": "servus", "gloss": "rob, sluga",
+      "forms": ["servus", "servi", "servo", "servum", "servo", "servi", "servorum", "servis", "servos", "servis"],
+      "sentences": [
+        { "text": "___ in agro laborant.", "case": "nom", "number": "pl", "tr": "Robovi rade na polju." },
+        { "text": "Dominus ___ vocat.", "case": "acc", "number": "pl", "tr": "Gospodar zove robove." }
+      ]
+    },
+    {
+      "lemma": "lupus", "gloss": "vuk",
+      "forms": ["lupus", "lupi", "lupo", "lupum", "lupo", "lupi", "luporum", "lupis", "lupos", "lupis"],
+      "sentences": [
+        { "text": "Agricola ___ videt.", "case": "acc", "number": "sg", "tr": "Zemljoradnik vidi vuka." }
+      ]
+    },
+    {
+      "lemma": "ager", "gloss": "njiva, polje",
+      "forms": ["ager", "agri", "agro", "agrum", "agro", "agri", "agrorum", "agris", "agros", "agris"],
+      "sentences": [
+        { "text": "Agricola in ___ laborat.", "case": "abl", "number": "sg", "tr": "Zemljoradnik radi na njivi." }
+      ]
+    },
+    {
+      "lemma": "puer", "gloss": "dečak",
+      "forms": ["puer", "pueri", "puero", "puerum", "puero", "pueri", "puerorum", "pueris", "pueros", "pueris"],
+      "sentences": [
+        { "text": "Liber ___ novus est.", "case": "gen", "number": "sg", "tr": "Dečakova knjiga je nova." },
+        { "text": "Magister librum ___ dat.", "case": "dat", "number": "pl", "tr": "Učitelj daje knjigu dečacima." }
+      ]
+    },
+    {
+      "lemma": "donum", "gloss": "dar, poklon",
+      "forms": ["donum", "doni", "dono", "donum", "dono", "dona", "donorum", "donis", "dona", "donis"],
+      "sentences": [
+        { "text": "Puer matri ___ dat.", "case": "acc", "number": "sg", "tr": "Dečak daje majci dar." }
+      ]
+    },
+    {
+      "lemma": "rex", "gloss": "kralj",
+      "forms": ["rex", "regis", "regi", "regem", "rege", "reges", "regum", "regibus", "reges", "regibus"],
+      "sentences": [
+        { "text": "Nomen ___ est Marcus.", "case": "gen", "number": "sg", "tr": "Kraljevo ime je Marcus." },
+        { "text": "Cives ___ laudant.", "case": "acc", "number": "sg", "tr": "Građani hvale kralja." }
+      ]
+    },
+    {
+      "lemma": "miles", "gloss": "vojnik",
+      "forms": ["miles", "militis", "militi", "militem", "milite", "milites", "militum", "militibus", "milites", "militibus"],
+      "sentences": [
+        { "text": "___ patriam amat.", "case": "nom", "number": "sg", "tr": "Vojnik voli domovinu." },
+        { "text": "___ urbem defendunt.", "case": "nom", "number": "pl", "tr": "Vojnici brane grad." },
+        { "text": "Gloria ___ magna est.", "case": "gen", "number": "pl", "tr": "Slava vojnika je velika." },
+        { "text": "Rex cum ___ in urbem venit.", "case": "abl", "number": "pl", "tr": "Kralj dolazi u grad sa vojnicima." }
+      ]
+    },
+    {
+      "lemma": "civis", "gloss": "građanin",
+      "forms": ["civis", "civis", "civi", "civem", "cive", "cives", "civium", "civibus", "cives", "civibus"],
+      "sentences": [
+        { "text": "Rex ___ pacem dat.", "case": "dat", "number": "pl", "tr": "Kralj daje građanima mir." }
+      ]
+    },
+    {
+      "lemma": "homo", "gloss": "čovek",
+      "forms": ["homo", "hominis", "homini", "hominem", "homine", "homines", "hominum", "hominibus", "homines", "hominibus"],
+      "sentences": [
+        { "text": "Omnes ___ mortales sunt.", "case": "nom", "number": "pl", "tr": "Svi ljudi su smrtni." },
+        { "text": "Deus ___ vitam dat.", "case": "dat", "number": "pl", "tr": "Bog daje ljudima život." }
+      ]
+    },
+    {
+      "lemma": "nomen", "gloss": "ime",
+      "forms": ["nomen", "nominis", "nomini", "nomen", "nomine", "nomina", "nominum", "nominibus", "nomina", "nominibus"],
+      "sentences": [
+        { "text": "Quod ___ tibi est?", "case": "nom", "number": "sg", "tr": "Kako ti je ime?" }
+      ]
+    },
+    {
+      "lemma": "pater", "gloss": "otac",
+      "forms": ["pater", "patris", "patri", "patrem", "patre", "patres", "patrum", "patribus", "patres", "patribus"],
+      "sentences": [
+        { "text": "Liber ___ bonus est.", "case": "gen", "number": "sg", "tr": "Očeva knjiga je dobra." }
+      ]
+    },
+    {
+      "lemma": "mater", "gloss": "majka",
+      "forms": ["mater", "matris", "matri", "matrem", "matre", "matres", "matrum", "matribus", "matres", "matribus"],
+      "sentences": [
+        { "text": "Filius ___ amat.", "case": "acc", "number": "sg", "tr": "Sin voli majku." }
+      ]
+    },
+    {
+      "lemma": "urbs", "gloss": "grad",
+      "forms": ["urbs", "urbis", "urbi", "urbem", "urbe", "urbes", "urbium", "urbibus", "urbes", "urbibus"],
+      "sentences": [
+        { "text": "Milites ___ capiunt.", "case": "acc", "number": "sg", "tr": "Vojnici zauzimaju grad." },
+        { "text": "Puer ex ___ venit.", "case": "abl", "number": "sg", "tr": "Dečak dolazi iz grada." },
+        { "text": "Nomen ___ est Roma.", "case": "gen", "number": "sg", "tr": "Ime grada je Roma." }
+      ]
+    },
+    {
+      "lemma": "flumen", "gloss": "reka",
+      "forms": ["flumen", "fluminis", "flumini", "flumen", "flumine", "flumina", "fluminum", "fluminibus", "flumina", "fluminibus"],
+      "sentences": [
+        { "text": "Naves in ___ navigant.", "case": "abl", "number": "sg", "tr": "Brodovi plove rekom." }
+      ]
+    },
+    {
+      "lemma": "manus", "gloss": "ruka",
+      "forms": ["manus", "manus", "manui", "manum", "manu", "manus", "manuum", "manibus", "manus", "manibus"],
+      "sentences": [
+        { "text": "Puella aquam ___ portat.", "case": "abl", "number": "pl", "tr": "Devojčica nosi vodu rukama." },
+        { "text": "Puer ___ lavat.", "case": "acc", "number": "pl", "tr": "Dečak pere ruke." }
+      ]
+    },
+    {
+      "lemma": "dies", "gloss": "dan",
+      "forms": ["dies", "diei", "diei", "diem", "die", "dies", "dierum", "diebus", "dies", "diebus"],
+      "sentences": [
+        { "text": "Bonus ___ est.", "case": "nom", "number": "sg", "tr": "Dobar je dan." },
+        { "text": "Multos ___ laboramus.", "case": "acc", "number": "pl", "tr": "Radimo mnogo dana." }
+      ]
+    }
+  ]
+}
