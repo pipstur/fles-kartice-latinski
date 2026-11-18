@@ -275,6 +275,26 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Pulchritudo ___ magna est.', 'rosae', 'rosa', 'ruža', 'gen', 'sg', 'Lepota ruže je velika.', array['rosa', 'rosae', 'rosam', 'rosarum', 'rosis', 'rosas']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puella ___ aquam dat.', 'rosae', 'rosa', 'ruža', 'dat', 'sg', 'Devojčica daje vodu ruži.', array['rosa', 'rosae', 'rosam', 'rosarum', 'rosis', 'rosas']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puella cum ___ in horto sedet.', 'rosa', 'rosa', 'ruža', 'abl', 'sg', 'Devojčica sedi u vrtu sa ružom.', array['rosa', 'rosae', 'rosam', 'rosarum', 'rosis', 'rosas']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in horto sunt.', 'rosae', 'rosa', 'ruža', 'nom', 'pl', 'Ruže su u vrtu.', array['rosa', 'rosae', 'rosam', 'rosarum', 'rosis', 'rosas']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Piscis in ___ natat.', 'aqua', 'aqua', 'voda', 'abl', 'sg', 'Riba pliva u vodi.', array['aqua', 'aquae', 'aquam', 'aquarum', 'aquis', 'aquas']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
@@ -285,12 +305,47 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in flumine est.', 'aqua', 'aqua', 'voda', 'nom', 'sg', 'Voda je u reci.', array['aqua', 'aquae', 'aquam', 'aquarum', 'aquis', 'aquas']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puer ___ bibit.', 'aquam', 'aqua', 'voda', 'acc', 'sg', 'Dečak pije vodu.', array['aqua', 'aquae', 'aquam', 'aquarum', 'aquis', 'aquas']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('In ___ ambulo.', 'via', 'via', 'put, ulica', 'abl', 'sg', 'Hodam putem (po putu).', array['via', 'viae', 'viam', 'viarum', 'viis', 'vias']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ longa est.', 'via', 'via', 'put, ulica', 'nom', 'sg', 'Put je dug.', array['via', 'viae', 'viam', 'viarum', 'viis', 'vias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Milites ___ muniunt.', 'viam', 'via', 'put, ulica', 'acc', 'sg', 'Vojnici grade (utvrđuju) put.', array['via', 'viae', 'viam', 'viarum', 'viis', 'vias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Longitudo ___ magna est.', 'viae', 'via', 'put, ulica', 'gen', 'sg', 'Dužina puta je velika.', array['via', 'viae', 'viam', 'viarum', 'viis', 'vias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Nautae ___ vident.', 'terram', 'terra', 'zemlja', 'acc', 'sg', 'Mornari vide zemlju.', array['terra', 'terrae', 'terram', 'terrarum', 'terris', 'terras']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Incolae ___ laborant.', 'terrae', 'terra', 'zemlja', 'gen', 'sg', 'Stanovnici zemlje rade.', array['terra', 'terrae', 'terram', 'terrarum', 'terris', 'terras']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ multae sunt.', 'terrae', 'terra', 'zemlja', 'nom', 'pl', 'Ima mnogo zemalja.', array['terra', 'terrae', 'terram', 'terrarum', 'terris', 'terras']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
@@ -320,6 +375,26 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ me amat.', 'amicus', 'amicus', 'prijatelj', 'nom', 'sg', 'Prijatelj me voli.', array['amicus', 'amici', 'amico', 'amicum', 'amicorum', 'amicis', 'amicos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Pueri ___ amant.', 'amicos', 'amicus', 'prijatelj', 'acc', 'pl', 'Dečaci vole prijatelje.', array['amicus', 'amici', 'amico', 'amicum', 'amicorum', 'amicis', 'amicos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in villa sunt.', 'amici', 'amicus', 'prijatelj', 'nom', 'pl', 'Prijatelji su u vili.', array['amicus', 'amici', 'amico', 'amicum', 'amicorum', 'amicis', 'amicos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Dominus ___ vinum dat.', 'amicis', 'amicus', 'prijatelj', 'dat', 'pl', 'Gospodar daje vino prijateljima.', array['amicus', 'amici', 'amico', 'amicum', 'amicorum', 'amicis', 'amicos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('___ in agro laborant.', 'servi', 'servus', 'rob, sluga', 'nom', 'pl', 'Robovi rade na polju.', array['servus', 'servi', 'servo', 'servum', 'servorum', 'servis', 'servos']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
@@ -330,12 +405,62 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in horto laborat.', 'servus', 'servus', 'rob, sluga', 'nom', 'sg', 'Rob radi u vrtu.', array['servus', 'servi', 'servo', 'servum', 'servorum', 'servis', 'servos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Dominus ___ librum dat.', 'servo', 'servus', 'rob, sluga', 'dat', 'sg', 'Gospodar daje knjigu robu.', array['servus', 'servi', 'servo', 'servum', 'servorum', 'servis', 'servos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Dominus cum ___ in agrum it.', 'servo', 'servus', 'rob, sluga', 'abl', 'sg', 'Gospodar ide u polje sa robom.', array['servus', 'servi', 'servo', 'servum', 'servorum', 'servis', 'servos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Vita ___ dura est.', 'servorum', 'servus', 'rob, sluga', 'gen', 'pl', 'Život robova je težak.', array['servus', 'servi', 'servo', 'servum', 'servorum', 'servis', 'servos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Agricola ___ videt.', 'lupum', 'lupus', 'vuk', 'acc', 'sg', 'Zemljoradnik vidi vuka.', array['lupus', 'lupi', 'lupo', 'lupum', 'luporum', 'lupis', 'lupos']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in silva habitat.', 'lupus', 'lupus', 'vuk', 'nom', 'sg', 'Vuk živi u šumi.', array['lupus', 'lupi', 'lupo', 'lupum', 'luporum', 'lupis', 'lupos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Vox ___ terribilis est.', 'lupi', 'lupus', 'vuk', 'gen', 'sg', 'Glas vuka je strašan.', array['lupus', 'lupi', 'lupo', 'lupum', 'luporum', 'lupis', 'lupos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Pastor cum ___ pugnat.', 'lupis', 'lupus', 'vuk', 'abl', 'pl', 'Pastir se bori sa vukovima.', array['lupus', 'lupi', 'lupo', 'lupum', 'luporum', 'lupis', 'lupos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Agricola in ___ laborat.', 'agro', 'ager', 'njiva, polje', 'abl', 'sg', 'Zemljoradnik radi na njivi.', array['ager', 'agri', 'agro', 'agrum', 'agrorum', 'agris', 'agros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ magnus est.', 'ager', 'ager', 'njiva, polje', 'nom', 'sg', 'Njiva je velika.', array['ager', 'agri', 'agro', 'agrum', 'agrorum', 'agris', 'agros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Agricola ___ colit.', 'agrum', 'ager', 'njiva, polje', 'acc', 'sg', 'Zemljoradnik obrađuje njivu.', array['ager', 'agri', 'agro', 'agrum', 'agrorum', 'agris', 'agros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Fructus ___ bonus est.', 'agri', 'ager', 'njiva, polje', 'gen', 'sg', 'Plod njive je dobar.', array['ager', 'agri', 'agro', 'agrum', 'agrorum', 'agris', 'agros']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
@@ -350,7 +475,32 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ librum legit.', 'puer', 'puer', 'dečak', 'nom', 'sg', 'Dečak čita knjigu.', array['puer', 'pueri', 'puero', 'puerum', 'puerorum', 'pueris', 'pueros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Magister ___ laudat.', 'puerum', 'puer', 'dečak', 'acc', 'sg', 'Učitelj hvali dečaka.', array['puer', 'pueri', 'puero', 'puerum', 'puerorum', 'pueris', 'pueros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Cum ___ ambulo.', 'puero', 'puer', 'dečak', 'abl', 'sg', 'Šetam sa dečakom.', array['puer', 'pueri', 'puero', 'puerum', 'puerorum', 'pueris', 'pueros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in schola sunt.', 'pueri', 'puer', 'dečak', 'nom', 'pl', 'Dečaci su u školi.', array['puer', 'pueri', 'puero', 'puerum', 'puerorum', 'pueris', 'pueros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Puer matri ___ dat.', 'donum', 'donum', 'dar, poklon', 'acc', 'sg', 'Dečak daje majci dar.', array['donum', 'doni', 'dono', 'dona', 'donorum', 'donis']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ pulchrum est.', 'donum', 'donum', 'dar, poklon', 'nom', 'sg', 'Dar je lep.', array['donum', 'doni', 'dono', 'dona', 'donorum', 'donis']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
@@ -361,6 +511,26 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Cives ___ laudant.', 'regem', 'rex', 'kralj', 'acc', 'sg', 'Građani hvale kralja.', array['rex', 'regis', 'regi', 'regem', 'rege', 'reges', 'regum', 'regibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in urbe habitat.', 'rex', 'rex', 'kralj', 'nom', 'sg', 'Kralj živi u gradu.', array['rex', 'regis', 'regi', 'regem', 'rege', 'reges', 'regum', 'regibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Cives ___ donum dant.', 'regi', 'rex', 'kralj', 'dat', 'sg', 'Građani daju dar kralju.', array['rex', 'regis', 'regi', 'regem', 'rege', 'reges', 'regum', 'regibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Miles cum ___ ambulat.', 'rege', 'rex', 'kralj', 'abl', 'sg', 'Vojnik šeta sa kraljem.', array['rex', 'regis', 'regi', 'regem', 'rege', 'reges', 'regum', 'regibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Historia ___ longa est.', 'regum', 'rex', 'kralj', 'gen', 'pl', 'Istorija kraljeva je duga.', array['rex', 'regis', 'regi', 'regem', 'rege', 'reges', 'regum', 'regibus']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
@@ -385,7 +555,42 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Rex ___ gladium dat.', 'militi', 'miles', 'vojnik', 'dat', 'sg', 'Kralj daje vojniku mač.', array['miles', 'militis', 'militi', 'militem', 'milite', 'milites', 'militum', 'militibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Rex ___ laudat.', 'militem', 'miles', 'vojnik', 'acc', 'sg', 'Kralj hvali vojnika.', array['miles', 'militis', 'militi', 'militem', 'milite', 'milites', 'militum', 'militibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Rex ___ in urbem mittit.', 'milites', 'miles', 'vojnik', 'acc', 'pl', 'Kralj šalje vojnike u grad.', array['miles', 'militis', 'militi', 'militem', 'milite', 'milites', 'militum', 'militibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Rex ___ pacem dat.', 'civibus', 'civis', 'građanin', 'dat', 'pl', 'Kralj daje građanima mir.', array['civis', 'civi', 'civem', 'cive', 'cives', 'civium', 'civibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ urbem amant.', 'cives', 'civis', 'građanin', 'nom', 'pl', 'Građani vole grad.', array['civis', 'civi', 'civem', 'cive', 'cives', 'civium', 'civibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Vox ___ magna est.', 'civium', 'civis', 'građanin', 'gen', 'pl', 'Glas građana je jak.', array['civis', 'civi', 'civem', 'cive', 'cives', 'civium', 'civibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Rex ___ videt.', 'civem', 'civis', 'građanin', 'acc', 'sg', 'Kralj vidi građanina.', array['civis', 'civi', 'civem', 'cive', 'cives', 'civium', 'civibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Rex cum ___ loquitur.', 'cive', 'civis', 'građanin', 'abl', 'sg', 'Kralj razgovara sa građaninom.', array['civis', 'civi', 'civem', 'cive', 'cives', 'civium', 'civibus']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
@@ -400,7 +605,37 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ mortalis est.', 'homo', 'homo', 'čovek', 'nom', 'sg', 'Čovek je smrtan.', array['homo', 'hominis', 'homini', 'hominem', 'homine', 'homines', 'hominum', 'hominibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Vita ___ brevis est.', 'hominis', 'homo', 'čovek', 'gen', 'sg', 'Život čoveka je kratak.', array['homo', 'hominis', 'homini', 'hominem', 'homine', 'homines', 'hominum', 'hominibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Deus ___ creat.', 'hominem', 'homo', 'čovek', 'acc', 'sg', 'Bog stvara čoveka.', array['homo', 'hominis', 'homini', 'hominem', 'homine', 'homines', 'hominum', 'hominibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Cum ___ loquor.', 'homine', 'homo', 'čovek', 'abl', 'sg', 'Razgovaram sa čovekom.', array['homo', 'hominis', 'homini', 'hominem', 'homine', 'homines', 'hominum', 'hominibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Quod ___ tibi est?', 'nomen', 'nomen', 'ime', 'nom', 'sg', 'Kako ti je ime?', array['nomen', 'nominis', 'nomini', 'nomine', 'nomina', 'nominum', 'nominibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Ego ___ tuum scio.', 'nomen', 'nomen', 'ime', 'acc', 'sg', 'Znam tvoje ime.', array['nomen', 'nominis', 'nomini', 'nomine', 'nomina', 'nominum', 'nominibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puer ___ Marcus vocatur.', 'nomine', 'nomen', 'ime', 'abl', 'sg', 'Dečak se zove Marcus.', array['nomen', 'nominis', 'nomini', 'nomine', 'nomina', 'nominum', 'nominibus']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
@@ -410,7 +645,47 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in domo est.', 'pater', 'pater', 'otac', 'nom', 'sg', 'Otac je u kući.', array['pater', 'patris', 'patri', 'patrem', 'patre', 'patres', 'patrum', 'patribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Filius ___ librum dat.', 'patri', 'pater', 'otac', 'dat', 'sg', 'Sin daje knjigu ocu.', array['pater', 'patris', 'patri', 'patrem', 'patre', 'patres', 'patrum', 'patribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Filia ___ videt.', 'patrem', 'pater', 'otac', 'acc', 'sg', 'Ćerka vidi oca.', array['pater', 'patris', 'patri', 'patrem', 'patre', 'patres', 'patrum', 'patribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Filius cum ___ ambulat.', 'patre', 'pater', 'otac', 'abl', 'sg', 'Sin šeta sa ocem.', array['pater', 'patris', 'patri', 'patrem', 'patre', 'patres', 'patrum', 'patribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ filios amant.', 'patres', 'pater', 'otac', 'nom', 'pl', 'Očevi vole sinove.', array['pater', 'patris', 'patri', 'patrem', 'patre', 'patres', 'patrum', 'patribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Filius ___ amat.', 'matrem', 'mater', 'majka', 'acc', 'sg', 'Sin voli majku.', array['mater', 'matris', 'matri', 'matrem', 'matre', 'matres', 'matrum', 'matribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in horto sedet.', 'mater', 'mater', 'majka', 'nom', 'sg', 'Majka sedi u vrtu.', array['mater', 'matris', 'matri', 'matrem', 'matre', 'matres', 'matrum', 'matribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puella ___ rosam dat.', 'matri', 'mater', 'majka', 'dat', 'sg', 'Devojčica daje ružu majci.', array['mater', 'matris', 'matri', 'matrem', 'matre', 'matres', 'matrum', 'matribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Amor ___ magnus est.', 'matris', 'mater', 'majka', 'gen', 'sg', 'Majčina ljubav je velika.', array['mater', 'matris', 'matri', 'matrem', 'matre', 'matres', 'matrum', 'matribus']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
@@ -430,7 +705,37 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ magna est.', 'urbs', 'urbs', 'grad', 'nom', 'sg', 'Grad je velik.', array['urbs', 'urbis', 'urbi', 'urbem', 'urbe', 'urbes', 'urbium', 'urbibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Muri ___ alti sunt.', 'urbium', 'urbs', 'grad', 'gen', 'pl', 'Zidovi gradova su visoki.', array['urbs', 'urbis', 'urbi', 'urbem', 'urbe', 'urbes', 'urbium', 'urbibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Rex multas ___ capit.', 'urbes', 'urbs', 'grad', 'acc', 'pl', 'Kralj zauzima mnoge gradove.', array['urbs', 'urbis', 'urbi', 'urbem', 'urbe', 'urbes', 'urbium', 'urbibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Naves in ___ navigant.', 'flumine', 'flumen', 'reka', 'abl', 'sg', 'Brodovi plove rekom.', array['flumen', 'fluminis', 'flumini', 'flumine', 'flumina', 'fluminum', 'fluminibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ latum est.', 'flumen', 'flumen', 'reka', 'nom', 'sg', 'Reka je široka.', array['flumen', 'fluminis', 'flumini', 'flumine', 'flumina', 'fluminum', 'fluminibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Milites ___ transeunt.', 'flumen', 'flumen', 'reka', 'acc', 'sg', 'Vojnici prelaze reku.', array['flumen', 'fluminis', 'flumini', 'flumine', 'flumina', 'fluminum', 'fluminibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Ripa ___ alta est.', 'fluminis', 'flumen', 'reka', 'gen', 'sg', 'Obala reke je visoka.', array['flumen', 'fluminis', 'flumini', 'flumine', 'flumina', 'fluminum', 'fluminibus']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
@@ -445,12 +750,377 @@ on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ mea parva est.', 'manus', 'manus', 'ruka', 'nom', 'sg', 'Moja ruka je mala.', array['manus', 'manui', 'manum', 'manu', 'manuum', 'manibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Digiti ___ longi sunt.', 'manus', 'manus', 'ruka', 'gen', 'sg', 'Prsti ruke su dugi.', array['manus', 'manui', 'manum', 'manu', 'manuum', 'manibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Bonus ___ est.', 'dies', 'dies', 'dan', 'nom', 'sg', 'Dobar je dan.', array['dies', 'diei', 'diem', 'die', 'dierum', 'diebus']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 
 insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
 values ('Multos ___ laboramus.', 'dies', 'dies', 'dan', 'acc', 'pl', 'Radimo mnogo dana.', array['dies', 'diei', 'diem', 'die', 'dierum', 'diebus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Lux ___ clara est.', 'diei', 'dies', 'dan', 'gen', 'sg', 'Svetlost dana je jasna.', array['dies', 'diei', 'diem', 'die', 'dierum', 'diebus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Quo ___ venis?', 'die', 'dies', 'dan', 'abl', 'sg', 'Kog dana dolaziš?', array['dies', 'diei', 'diem', 'die', 'dierum', 'diebus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ breves sunt.', 'dies', 'dies', 'dan', 'nom', 'pl', 'Dani su kratki.', array['dies', 'diei', 'diem', 'die', 'dierum', 'diebus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in horto ludit.', 'filia', 'filia', 'ćerka', 'nom', 'sg', 'Ćerka se igra u vrtu.', array['filia', 'filiae', 'filiam', 'filiarum', 'filiabus', 'filias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Pater ___ rosam dat.', 'filiae', 'filia', 'ćerka', 'dat', 'sg', 'Otac daje ružu ćerki.', array['filia', 'filiae', 'filiam', 'filiarum', 'filiabus', 'filias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Mater ___ amat.', 'filiam', 'filia', 'ćerka', 'acc', 'sg', 'Majka voli ćerku.', array['filia', 'filiae', 'filiam', 'filiarum', 'filiabus', 'filias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Mater cum ___ ambulat.', 'filia', 'filia', 'ćerka', 'abl', 'sg', 'Majka šeta sa ćerkom.', array['filia', 'filiae', 'filiam', 'filiarum', 'filiabus', 'filias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Pater ___ rosas dat.', 'filiabus', 'filia', 'ćerka', 'dat', 'pl', 'Otac daje ruže ćerkama.', array['filia', 'filiae', 'filiam', 'filiarum', 'filiabus', 'filias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ servum vocat.', 'dominus', 'dominus', 'gospodar', 'nom', 'sg', 'Gospodar zove roba.', array['dominus', 'domini', 'domino', 'dominum', 'dominorum', 'dominis', 'dominos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Villa ___ magna est.', 'domini', 'dominus', 'gospodar', 'gen', 'sg', 'Gospodareva vila je velika.', array['dominus', 'domini', 'domino', 'dominum', 'dominorum', 'dominis', 'dominos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Servus ___ librum dat.', 'domino', 'dominus', 'gospodar', 'dat', 'sg', 'Rob daje knjigu gospodaru.', array['dominus', 'domini', 'domino', 'dominum', 'dominorum', 'dominis', 'dominos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Servus ___ timet.', 'dominum', 'dominus', 'gospodar', 'acc', 'sg', 'Rob se plaši gospodara.', array['dominus', 'domini', 'domino', 'dominum', 'dominorum', 'dominis', 'dominos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Servus cum ___ ambulat.', 'domino', 'dominus', 'gospodar', 'abl', 'sg', 'Rob šeta sa gospodarom.', array['dominus', 'domini', 'domino', 'dominum', 'dominorum', 'dominis', 'dominos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in mensa est.', 'liber', 'liber', 'knjiga', 'nom', 'sg', 'Knjiga je na stolu.', array['liber', 'libri', 'libro', 'librum', 'librorum', 'libris', 'libros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puer ___ legit.', 'librum', 'liber', 'knjiga', 'acc', 'sg', 'Dečak čita knjigu.', array['liber', 'libri', 'libro', 'librum', 'librorum', 'libris', 'libros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puer in ___ legit.', 'libro', 'liber', 'knjiga', 'abl', 'sg', 'Dečak čita u knjizi.', array['liber', 'libri', 'libro', 'librum', 'librorum', 'libris', 'libros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Magister multos ___ legit.', 'libros', 'liber', 'knjiga', 'acc', 'pl', 'Učitelj čita mnoge knjige.', array['liber', 'libri', 'libro', 'librum', 'librorum', 'libris', 'libros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Titulus ___ longus est.', 'libri', 'liber', 'knjiga', 'gen', 'sg', 'Naslov knjige je dug.', array['liber', 'libri', 'libro', 'librum', 'librorum', 'libris', 'libros']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ longum est.', 'bellum', 'bellum', 'rat', 'nom', 'sg', 'Rat je dug.', array['bellum', 'belli', 'bello', 'bella', 'bellorum', 'bellis']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Causa ___ magna est.', 'belli', 'bellum', 'rat', 'gen', 'sg', 'Uzrok rata je velik.', array['bellum', 'belli', 'bello', 'bella', 'bellorum', 'bellis']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Romani ___ gerunt.', 'bellum', 'bellum', 'rat', 'acc', 'sg', 'Rimljani vode rat.', array['bellum', 'belli', 'bello', 'bella', 'bellorum', 'bellis']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('In ___ miles pugnat.', 'bello', 'bellum', 'rat', 'abl', 'sg', 'Vojnik se bori u ratu.', array['bellum', 'belli', 'bello', 'bella', 'bellorum', 'bellis']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ bonum est.', 'verbum', 'verbum', 'reč', 'nom', 'sg', 'Reč je dobra.', array['verbum', 'verbi', 'verbo', 'verba', 'verborum', 'verbis']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puer ___ dicit.', 'verbum', 'verbum', 'reč', 'acc', 'sg', 'Dečak izgovara reč.', array['verbum', 'verbi', 'verbo', 'verba', 'verborum', 'verbis']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Sensus ___ difficilis est.', 'verbi', 'verbum', 'reč', 'gen', 'sg', 'Smisao reči je težak.', array['verbum', 'verbi', 'verbo', 'verba', 'verborum', 'verbis']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puer multa ___ discit.', 'verba', 'verbum', 'reč', 'acc', 'pl', 'Dečak uči mnoge reči.', array['verbum', 'verbi', 'verbo', 'verba', 'verborum', 'verbis']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ meum fessum est.', 'corpus', 'corpus', 'telo', 'nom', 'sg', 'Moje telo je umorno.', array['corpus', 'corporis', 'corpori', 'corpore', 'corpora', 'corporum', 'corporibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Pars ___ magna est.', 'corporis', 'corpus', 'telo', 'gen', 'sg', 'Deo tela je veliki.', array['corpus', 'corporis', 'corpori', 'corpore', 'corpora', 'corporum', 'corporibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Mens sana in ___ sano.', 'corpore', 'corpus', 'telo', 'abl', 'sg', 'Zdrav duh u zdravom telu.', array['corpus', 'corporis', 'corpori', 'corpore', 'corpora', 'corporum', 'corporibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Medicus ___ curat.', 'corpus', 'corpus', 'telo', 'acc', 'sg', 'Lekar leči telo.', array['corpus', 'corporis', 'corpori', 'corpore', 'corpora', 'corporum', 'corporibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ fugit.', 'tempus', 'tempus', 'vreme', 'nom', 'sg', 'Vreme beži.', array['tempus', 'temporis', 'tempori', 'tempore', 'tempora', 'temporum', 'temporibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Multum ___ habeo.', 'tempus', 'tempus', 'vreme', 'acc', 'sg', 'Imam mnogo vremena.', array['tempus', 'temporis', 'tempori', 'tempore', 'tempora', 'temporum', 'temporibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Illo ___ Roma magna erat.', 'tempore', 'tempus', 'vreme', 'abl', 'sg', 'U ono vreme Rim je bio velik.', array['tempus', 'temporis', 'tempori', 'tempore', 'tempora', 'temporum', 'temporibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ mutantur.', 'tempora', 'tempus', 'vreme', 'nom', 'pl', 'Vremena se menjaju.', array['tempus', 'temporis', 'tempori', 'tempore', 'tempora', 'temporum', 'temporibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ dura est.', 'lex', 'lex', 'zakon', 'nom', 'sg', 'Zakon je tvrd.', array['lex', 'legis', 'legi', 'legem', 'lege', 'leges', 'legum', 'legibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Cives ___ servant.', 'legem', 'lex', 'zakon', 'acc', 'sg', 'Građani poštuju zakon.', array['lex', 'legis', 'legi', 'legem', 'lege', 'leges', 'legum', 'legibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Cives ___ reguntur.', 'lege', 'lex', 'zakon', 'abl', 'sg', 'Građani se vode zakonom.', array['lex', 'legis', 'legi', 'legem', 'lege', 'leges', 'legum', 'legibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Cives ___ parent.', 'legi', 'lex', 'zakon', 'dat', 'sg', 'Građani se pokoravaju zakonu.', array['lex', 'legis', 'legi', 'legem', 'lege', 'leges', 'legum', 'legibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ bonae sunt.', 'leges', 'lex', 'zakon', 'nom', 'pl', 'Zakoni su dobri.', array['lex', 'legis', 'legi', 'legem', 'lege', 'leges', 'legum', 'legibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Scientia ___ magna est.', 'legum', 'lex', 'zakon', 'gen', 'pl', 'Znanje zakona je veliko.', array['lex', 'legis', 'legi', 'legem', 'lege', 'leges', 'legum', 'legibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ obscura est.', 'nox', 'nox', 'noć', 'nom', 'sg', 'Noć je mračna.', array['nox', 'noctis', 'nocti', 'noctem', 'nocte', 'noctes', 'noctium', 'noctibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Nautae ___ navigant.', 'nocte', 'nox', 'noć', 'abl', 'sg', 'Mornari plove noću.', array['nox', 'noctis', 'nocti', 'noctem', 'nocte', 'noctes', 'noctium', 'noctibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Multas ___ vigilo.', 'noctes', 'nox', 'noć', 'acc', 'pl', 'Bdim mnoge noći.', array['nox', 'noctis', 'nocti', 'noctem', 'nocte', 'noctes', 'noctium', 'noctibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Silentium ___ magnum est.', 'noctis', 'nox', 'noć', 'gen', 'sg', 'Tišina noći je velika.', array['nox', 'noctis', 'nocti', 'noctem', 'nocte', 'noctes', 'noctium', 'noctibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ meum dolet.', 'caput', 'caput', 'glava', 'nom', 'sg', 'Boli me glava.', array['caput', 'capitis', 'capiti', 'capite', 'capita', 'capitum', 'capitibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Corona in ___ est.', 'capite', 'caput', 'glava', 'abl', 'sg', 'Kruna je na glavi.', array['caput', 'capitis', 'capiti', 'capite', 'capita', 'capitum', 'capitibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Miles ___ tegit.', 'caput', 'caput', 'glava', 'acc', 'sg', 'Vojnik pokriva glavu.', array['caput', 'capitis', 'capiti', 'capite', 'capita', 'capitum', 'capitibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ longus est.', 'annus', 'annus', 'godina', 'nom', 'sg', 'Godina je duga.', array['annus', 'anni', 'anno', 'annum', 'annorum', 'annis', 'annos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Tres ___ laboro.', 'annos', 'annus', 'godina', 'acc', 'pl', 'Radim tri godine.', array['annus', 'anni', 'anno', 'annum', 'annorum', 'annis', 'annos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ meus bonus est.', 'oculus', 'oculus', 'oko', 'nom', 'sg', 'Moje oko je dobro.', array['oculus', 'oculi', 'oculo', 'oculum', 'oculorum', 'oculis', 'oculos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ videmus.', 'oculis', 'oculus', 'oko', 'abl', 'pl', 'Vidimo očima.', array['oculus', 'oculi', 'oculo', 'oculum', 'oculorum', 'oculis', 'oculos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Puella ___ claudit.', 'oculos', 'oculus', 'oko', 'acc', 'pl', 'Devojčica zatvara oči.', array['oculus', 'oculi', 'oculo', 'oculum', 'oculorum', 'oculis', 'oculos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ celer est.', 'equus', 'equus', 'konj', 'nom', 'sg', 'Konj je brz.', array['equus', 'equi', 'equo', 'equum', 'equorum', 'equis', 'equos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Agricola ___ amat.', 'equum', 'equus', 'konj', 'acc', 'sg', 'Zemljoradnik voli konja.', array['equus', 'equi', 'equo', 'equum', 'equorum', 'equis', 'equos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Miles ___ vehitur.', 'equo', 'equus', 'konj', 'abl', 'sg', 'Vojnik jaše konja.', array['equus', 'equi', 'equo', 'equum', 'equorum', 'equis', 'equos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Cauda ___ longa est.', 'equi', 'equus', 'konj', 'gen', 'sg', 'Rep konja je dug.', array['equus', 'equi', 'equo', 'equum', 'equorum', 'equis', 'equos']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ parva est.', 'insula', 'insula', 'ostrvo', 'nom', 'sg', 'Ostrvo je malo.', array['insula', 'insulae', 'insulam', 'insularum', 'insulis', 'insulas']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('In ___ habito.', 'insula', 'insula', 'ostrvo', 'abl', 'sg', 'Živim na ostrvu.', array['insula', 'insulae', 'insulam', 'insularum', 'insulis', 'insulas']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Romani ___ capiunt.', 'insulam', 'insula', 'ostrvo', 'acc', 'sg', 'Rimljani zauzimaju ostrvo.', array['insula', 'insulae', 'insulam', 'insularum', 'insulis', 'insulas']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ mea magna est.', 'familia', 'familia', 'porodica', 'nom', 'sg', 'Moja porodica je velika.', array['familia', 'familiae', 'familiam', 'familiarum', 'familiis', 'familias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Pater ___ in domo est.', 'familiae', 'familia', 'porodica', 'gen', 'sg', 'Otac porodice je u kući.', array['familia', 'familiae', 'familiam', 'familiarum', 'familiis', 'familias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Pater ___ amat.', 'familiam', 'familia', 'porodica', 'acc', 'sg', 'Otac voli porodicu.', array['familia', 'familiae', 'familiam', 'familiarum', 'familiis', 'familias']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ meus altus est.', 'frater', 'frater', 'brat', 'nom', 'sg', 'Moj brat je visok.', array['frater', 'fratris', 'fratri', 'fratrem', 'fratre', 'fratres', 'fratrum', 'fratribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Soror ___ librum dat.', 'fratri', 'frater', 'brat', 'dat', 'sg', 'Sestra daje knjigu bratu.', array['frater', 'fratris', 'fratri', 'fratrem', 'fratre', 'fratres', 'fratrum', 'fratribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Soror ___ amat.', 'fratrem', 'frater', 'brat', 'acc', 'sg', 'Sestra voli brata.', array['frater', 'fratris', 'fratri', 'fratrem', 'fratre', 'fratres', 'fratrum', 'fratribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Cum ___ ludo.', 'fratre', 'frater', 'brat', 'abl', 'sg', 'Igram se sa bratom.', array['frater', 'fratris', 'fratri', 'fratrem', 'fratre', 'fratres', 'fratrum', 'fratribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ in horto ludunt.', 'fratres', 'frater', 'brat', 'nom', 'pl', 'Braća se igraju u vrtu.', array['frater', 'fratris', 'fratri', 'fratrem', 'fratre', 'fratres', 'fratrum', 'fratribus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('___ mea pulchra est.', 'soror', 'soror', 'sestra', 'nom', 'sg', 'Moja sestra je lepa.', array['soror', 'sororis', 'sorori', 'sororem', 'sorore', 'sorores', 'sororum', 'sororibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Frater ___ amat.', 'sororem', 'soror', 'sestra', 'acc', 'sg', 'Brat voli sestru.', array['soror', 'sororis', 'sorori', 'sororem', 'sorore', 'sorores', 'sororum', 'sororibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Frater cum ___ ambulat.', 'sorore', 'soror', 'sestra', 'abl', 'sg', 'Brat šeta sa sestrom.', array['soror', 'sororis', 'sorori', 'sororem', 'sorore', 'sorores', 'sororum', 'sororibus']::text[])
+on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
+  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
+
+insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)
+values ('Frater ___ rosam dat.', 'sorori', 'soror', 'sestra', 'dat', 'sg', 'Brat daje ružu sestri.', array['soror', 'sororis', 'sorori', 'sororem', 'sorore', 'sorores', 'sororum', 'sororibus']::text[])
 on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,
   grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;
 

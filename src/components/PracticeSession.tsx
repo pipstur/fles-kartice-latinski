@@ -48,6 +48,7 @@ export function PracticeSession({ questions, theme, sound, title, onRestart }: P
   const [streak, setStreak] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
   const missed = useRef(new Set<string>())
+  const attempts = useRef(0) // svi odgovori u rundi, i pogrešni
   const saved = useRef(false)
 
   const current = queue[0]
@@ -64,6 +65,7 @@ export function PracticeSession({ questions, theme, sound, title, onRestart }: P
     (answer: string) => {
       if (!current || status !== 'answering') return
       const ok = norm(answer) === norm(current.answer)
+      attempts.current += 1
       setPicked(answer)
       setStatus(ok ? 'right' : 'wrong')
       play(ok ? 'good' : 'bad', sound)
@@ -103,7 +105,7 @@ export function PracticeSession({ questions, theme, sound, title, onRestart }: P
     saved.current = true
     play('done', sound)
     confetti({ particleCount: 140, spread: 80, origin: { y: 0.6 } })
-    addStudy(userId, correct * 10)
+    addStudy(userId, correct * 10, attempts.current)
       .then((s) => setStreak(s.streak))
       .catch((e: Error) => setError(e.message))
   }, [finished, correct, userId, sound])

@@ -36,7 +36,13 @@ export interface GrammarItem {
   forms: string[]
 }
 
-export type Tense = 'praes' | 'impf' | 'fut' | 'perf'
+export interface Activity {
+  day: string // YYYY-MM-DD
+  answers: number
+  xp: number
+}
+
+export type Tense ='praes' | 'impf' | 'fut' | 'perf'
 
 export interface Verb {
   id: string

@@ -26,6 +26,7 @@ export function Header() {
       <div className="topbar-right">
         <span className="pill" title="Dnevna serija">🔥 {stats.streak}</span>
         <span className="pill" title="Poeni">⭐ {stats.xp}</span>
+        <Link to="/statistika" className="icon-btn" aria-label="Statistika">📊</Link>
         {admin && <Link to="/uredi" className="icon-btn" aria-label="Uredi kartice">✏️</Link>}
         <Link to="/podesavanja" className="icon-btn" aria-label="Podešavanja">⚙️</Link>
         <button className="icon-btn" aria-label="Odjava" onClick={() => supabase.auth.signOut()}>⎋</button>

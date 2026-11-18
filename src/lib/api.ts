@@ -1,7 +1,7 @@
 import { supabase } from './supabase'
 import { today, yesterday } from './srs'
 import { DEFAULT_SETTINGS, DEFAULT_STATS } from './types'
-import type { Card, Deck, GrammarItem, Progress, Settings, Stats, Verb } from './types'
+import type { Activity, Card, Deck, GrammarItem, Progress, Settings, Stats, Verb } from './types'
 
 function check<T>(res: { data: T | null; error: { message: string } | null }): T | null {
   if (res.error) throw new Error(res.error.message)
@@ -77,8 +77,12 @@ export async function loadStats(userId: string): Promise<Stats> {
   return row ?? DEFAULT_STATS
 }
 
-// Dodaje XP i računa seriju (streak) po lokalnom datumu.
-export async function addStudy(userId: string, xp: number): Promise<Stats> {
+export async function loadActivity(userId: string): Promise<Activity[]> {
+  return check(await supabase.from('lat_activity').select('day,answers,xp').eq('user_id', userId).order('day')) ?? []
+}
+
+// Dodaje XP i računa seriju (streak) po lokalnom datumu; beleži i broj odgovora za statistiku.
+export async function addStudy(userId: string, xp: number, answers = 0): Promise<Stats> {
   const cur = await loadStats(userId)
   const day = today()
   let streak = cur.streak
@@ -90,5 +94,22 @@ export async function addStudy(userId: string, xp: number): Promise<Stats> {
     last_study_day: day,
   }
   check(await supabase.from('lat_stats').upsert({ user_id: userId, ...next }))
+
+  // Aktivnost je samo za statistiku: ako tabela još ne postoji, učenje ne sme da pukne.
+  try {
+    const row = check(await supabase.from('lat_activity').select('answers,xp').eq('user_id', userId).eq('day', day).maybeSingle()) as
+      | { answers: number; xp: number }
+      | null
+    check(
+      await supabase.from('lat_activity').upsert({
+        user_id: userId,
+        day,
+        answers: (row?.answers ?? 0) + answers,
+        xp: (row?.xp ?? 0) + xp,
+      }),
+    )
+  } catch {
+    // ignorisano
+  }
   return next
 }

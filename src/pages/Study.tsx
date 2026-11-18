@@ -112,7 +112,7 @@ export function Study() {
     saved.current = true
     play('done', settings!.sound)
     confetti({ particleCount: 140, spread: 80, origin: { y: 0.6 } })
-    addStudy(userId, xp).then(setStats).catch((e: Error) => setError(e.message))
+    addStudy(userId, xp, answered).then(setStats).catch((e: Error) => setError(e.message))
   }, [finished, answered, xp, userId, settings])
 
   if (error) {

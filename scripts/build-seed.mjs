@@ -33,12 +33,15 @@ const grammar = JSON.parse(readFileSync(new URL('../seed/grammar.json', import.m
 const CASE_IDX = { nom: 0, gen: 1, dat: 2, acc: 3, abl: 4 }
 const arr = (list) => `array[${list.map(q).join(', ')}]::text[]`
 let sentenceCount = 0
+const seenSentences = new Set()
 
 for (const l of grammar.lemmas) {
   if (l.forms.length !== 10) throw new Error(`${l.lemma}: treba 10 oblika, ima ${l.forms.length}`)
   const forms = [...new Set(l.forms)]
   for (const s of l.sentences) {
     if (s.text.split('___').length !== 2) throw new Error(`"${s.text}": treba tačno jedno ___`)
+    if (seenSentences.has(s.text)) throw new Error(`"${s.text}": rečenica se ponavlja (mora biti jedinstvena)`)
+    seenSentences.add(s.text)
     const idx = CASE_IDX[s.case] + (s.number === 'pl' ? 5 : 0)
     if (CASE_IDX[s.case] === undefined) throw new Error(`"${s.text}": nepoznat padež ${s.case}`)
     sql +=

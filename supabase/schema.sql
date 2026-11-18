@@ -81,6 +81,16 @@ create table if not exists public.lat_grammar_items (
   created_at  timestamptz not null default now()
 );
 
+-- ------------------------------------------------ aktivnost po danima
+-- Jedan red po korisniku i danu: koliko je odgovora dato i koliko je XP zarađeno (za statistiku).
+create table if not exists public.lat_activity (
+  user_id  uuid not null references auth.users(id) on delete cascade,
+  day      date not null,
+  answers  int  not null default 0,
+  xp       int  not null default 0,
+  primary key (user_id, day)
+);
+
 -- -------------------------------------------------- konjugacija (glagoli)
 -- forms: {"praes":[6 oblika], "impf":[...], "fut":[...], "perf":[...]}, redom 1.-3. lice jednine pa množine.
 create table if not exists public.lat_verbs (
@@ -112,6 +122,7 @@ $$;
 -- =================================================== Row Level Security
 alter table public.lat_admins enable row level security;
 alter table public.lat_verbs  enable row level security;
+alter table public.lat_activity enable row level security;
 alter table public.lat_decks          enable row level security;
 alter table public.lat_cards          enable row level security;
 alter table public.lat_progress       enable row level security;
@@ -147,6 +158,9 @@ create policy "grammar admin" on public.lat_grammar_items for all to authenticat
 drop policy if exists "progress own"  on public.lat_progress;
 drop policy if exists "settings own"  on public.lat_user_settings;
 drop policy if exists "stats own"     on public.lat_stats;
+drop policy if exists "activity own"  on public.lat_activity;
+create policy "activity own" on public.lat_activity
+  for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid());
 create policy "progress own" on public.lat_progress
   for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid());
 create policy "settings own" on public.lat_user_settings

@@ -7,6 +7,7 @@ import { Grammar } from './pages/Grammar'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { SettingsPage } from './pages/SettingsPage'
+import { Statistics } from './pages/Statistics'
 import { Study } from './pages/Study'
 
 function Gate() {
@@ -20,6 +21,7 @@ function Gate() {
       <Route path="/padezi" element={<Grammar />} />
       <Route path="/konjugacija" element={<Conjugation />} />
       <Route path="/uredi" element={<Editor />} />
+      <Route path="/statistika" element={<Statistics />} />
       <Route path="/podesavanja" element={<SettingsPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
