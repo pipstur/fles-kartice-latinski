@@ -42,7 +42,16 @@ export interface Activity {
   xp: number
 }
 
-export type Tense ='praes' | 'impf' | 'fut' | 'perf'
+export type GameKind = 'blitz' | 'pairs'
+
+export interface Score {
+  game: GameKind
+  scope: string // 'all' ili slug deka
+  best: number
+  plays: number
+}
+
+export type Tense = 'praes' | 'impf' | 'fut' | 'perf'
 
 export interface Verb {
   id: string

@@ -1,11 +1,13 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AuthProvider, useAuth } from './auth'
 import { configured } from './lib/supabase'
+import { Blitz } from './pages/Blitz'
 import { Conjugation } from './pages/Conjugation'
 import { Editor } from './pages/Editor'
 import { Grammar } from './pages/Grammar'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
+import { Pairs } from './pages/Pairs'
 import { SettingsPage } from './pages/SettingsPage'
 import { Statistics } from './pages/Statistics'
 import { Study } from './pages/Study'
@@ -20,6 +22,8 @@ function Gate() {
       <Route path="/dek/:slug" element={<Study />} />
       <Route path="/padezi" element={<Grammar />} />
       <Route path="/konjugacija" element={<Conjugation />} />
+      <Route path="/blic" element={<Blitz />} />
+      <Route path="/parovi" element={<Pairs />} />
       <Route path="/uredi" element={<Editor />} />
       <Route path="/statistika" element={<Statistics />} />
       <Route path="/podesavanja" element={<SettingsPage />} />

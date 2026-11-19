@@ -47,6 +47,14 @@
 /* Boja teksta mora da prati temu, a ne samo body (inače je tekst tamnim na tamnoj temi). */
 [data-theme] { color: var(--text); }
 
+[data-theme='game'] {
+  --bg: #fff6ec;
+  --primary: #ff7a1a;
+  --primary-dark: #cc5f10;
+  --accent: #ffc800;
+  --face-back: #ffe8d0;
+}
+
 * { box-sizing: border-box; }
 html, body, #root { min-height: 100%; }
 body {
@@ -209,6 +217,36 @@ input[type='range'] { width: 100%; accent-color: var(--primary); }
 .setup .big { font-size: 4rem; }
 .setup .chips { justify-content: center; }
 .chip small { display: block; font-weight: 600; color: var(--muted); }
+
+/* ---------- Igre (blic, parovi) ---------- */
+.game-options { width: 100%; max-width: 420px; text-align: left; }
+.option:disabled { opacity: 0.5; cursor: default; }
+.progress.timer div { background: var(--primary); transition: width 0.1s linear; }
+.progress.timer.low div { background: #ff4b4b; }
+.combo-row { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 34px; position: relative; margin-top: 8px; }
+.combo { font-weight: 900; font-size: 1.15rem; padding: 2px 12px; border-radius: 999px; background: var(--surface); border: 2px solid var(--border); }
+.combo.hot { background: var(--accent); border-color: var(--primary); color: #4a2a00; }
+.gain { position: absolute; right: 14%; font-weight: 900; color: var(--primary-dark); font-size: 1.2rem; }
+.blitz-prompt { font-family: var(--heading-font); font-size: clamp(2rem, 8vw, 3rem); font-weight: 900; margin: 4px 0 8px; text-align: center; overflow-wrap: anywhere; }
+.blitz-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 480px; }
+.btn.opt-btn { text-transform: none; letter-spacing: 0; font-size: 1.05rem; padding: 18px 8px; min-height: 76px; gap: 8px; }
+.opt-btn kbd { font: inherit; font-size: 0.7rem; opacity: 0.55; }
+@media (hover: none) { .opt-btn kbd { display: none; } }
+.opt-btn.right { background: #d7ffb8; border-color: #58cc02; color: #2f7d00; }
+.opt-btn.wrong { background: #ffdfe0; border-color: #ff4b4b; color: #b3261e; }
+.opt-btn.dim { opacity: 0.45; }
+.pairs-stage { align-content: start; }
+.pairs-info { text-align: center; margin: 0 0 10px; }
+.pairs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
+.pairs-col { display: grid; gap: 10px; align-content: start; }
+.tile {
+  padding: 16px 8px; min-height: 64px; border-radius: 16px; border: 2px solid var(--border); border-bottom-width: 5px;
+  background: var(--surface); color: var(--text); font: inherit; font-weight: 800; font-size: 1.05rem; cursor: pointer; overflow-wrap: anywhere;
+}
+.tile.sel { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 14%, var(--surface)); }
+.tile.done { opacity: 0.35; border-color: #58cc02; background: #d7ffb8; color: #2f7d00; cursor: default; }
+.tile.bad { border-color: #ff4b4b; background: #ffdfe0; animation: shake 0.4s; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
 
 /* ---------- Statistika ---------- */
 .small { font-size: 0.85rem; margin: 0 0 12px; }

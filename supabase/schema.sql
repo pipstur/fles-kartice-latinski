@@ -91,6 +91,18 @@ create table if not exists public.lat_activity (
   primary key (user_id, day)
 );
 
+-- ------------------------------------------------------ rekordi u igrama
+-- scope: 'all' (svi dekovi) ili slug deka. best = najbolji rezultat (veći je bolji).
+create table if not exists public.lat_scores (
+  user_id    uuid not null references auth.users(id) on delete cascade,
+  game       text not null check (game in ('blitz','pairs')),
+  scope      text not null default 'all',
+  best       int  not null default 0,
+  plays      int  not null default 0,
+  updated_at timestamptz not null default now(),
+  primary key (user_id, game, scope)
+);
+
 -- -------------------------------------------------- konjugacija (glagoli)
 -- forms: {"praes":[6 oblika], "impf":[...], "fut":[...], "perf":[...]}, redom 1.-3. lice jednine pa množine.
 create table if not exists public.lat_verbs (
@@ -123,6 +135,7 @@ $$;
 alter table public.lat_admins enable row level security;
 alter table public.lat_verbs  enable row level security;
 alter table public.lat_activity enable row level security;
+alter table public.lat_scores   enable row level security;
 alter table public.lat_decks          enable row level security;
 alter table public.lat_cards          enable row level security;
 alter table public.lat_progress       enable row level security;
@@ -159,6 +172,9 @@ drop policy if exists "progress own"  on public.lat_progress;
 drop policy if exists "settings own"  on public.lat_user_settings;
 drop policy if exists "stats own"     on public.lat_stats;
 drop policy if exists "activity own"  on public.lat_activity;
+drop policy if exists "scores own"    on public.lat_scores;
+create policy "scores own" on public.lat_scores
+  for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid());
 create policy "activity own" on public.lat_activity
   for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid());
 create policy "progress own" on public.lat_progress

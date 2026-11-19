@@ -1,7 +1,7 @@
 import { supabase } from './supabase'
 import { today, yesterday } from './srs'
 import { DEFAULT_SETTINGS, DEFAULT_STATS } from './types'
-import type { Activity, Card, Deck, GrammarItem, Progress, Settings, Stats, Verb } from './types'
+import type { Activity, Card, Deck, GameKind, GrammarItem, Progress, Score, Settings, Stats, Verb } from './types'
 
 function check<T>(res: { data: T | null; error: { message: string } | null }): T | null {
   if (res.error) throw new Error(res.error.message)
@@ -75,6 +75,43 @@ export async function saveSettings(userId: string, s: Settings) {
 export async function loadStats(userId: string): Promise<Stats> {
   const row = check(await supabase.from('lat_stats').select('*').eq('user_id', userId).maybeSingle())
   return row ?? DEFAULT_STATS
+}
+
+// Rekordi su dodatak: ako tabela još ne postoji, igre rade, samo bez čuvanja rezultata.
+export async function loadScores(userId: string): Promise<Score[]> {
+  try {
+    return check(await supabase.from('lat_scores').select('game,scope,best,plays').eq('user_id', userId)) ?? []
+  } catch {
+    return []
+  }
+}
+
+export async function saveScore(
+  userId: string,
+  game: GameKind,
+  scope: string,
+  score: number,
+): Promise<{ best: number; record: boolean }> {
+  try {
+    const row = check(
+      await supabase.from('lat_scores').select('best,plays').eq('user_id', userId).eq('game', game).eq('scope', scope).maybeSingle(),
+    ) as { best: number; plays: number } | null
+    const prev = row?.best ?? 0
+    const best = Math.max(prev, score)
+    check(
+      await supabase.from('lat_scores').upsert({
+        user_id: userId,
+        game,
+        scope,
+        best,
+        plays: (row?.plays ?? 0) + 1,
+        updated_at: new Date().toISOString(),
+      }),
+    )
+    return { best, record: score > prev }
+  } catch {
+    return { best: score, record: false }
+  }
 }
 
 export async function loadActivity(userId: string): Promise<Activity[]> {

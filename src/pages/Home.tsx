@@ -86,6 +86,28 @@ export function Home() {
             </Link>
           </motion.div>
         </div>
+
+        <h2 className="page-title section-gap">Igre</h2>
+        <div className="deck-grid">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
+            <Link to="/blic" className="deck" data-theme="game">
+              <span className="deck-icon">⚡</span>
+              <div className="deck-body">
+                <h3>Blic runda</h3>
+                <p>60 sekundi, niz tačnih odgovora i množilac do x5.</p>
+              </div>
+            </Link>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.07 }} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
+            <Link to="/parovi" className="deck" data-theme="game">
+              <span className="deck-icon">🧩</span>
+              <div className="deck-body">
+                <h3>Spajanje parova</h3>
+                <p>Spoji latinske reči sa prevodima što brže možeš.</p>
+              </div>
+            </Link>
+          </motion.div>
+        </div>
       </main>
     </>
   )
