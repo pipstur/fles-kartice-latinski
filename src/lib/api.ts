@@ -1,7 +1,20 @@
 import { supabase } from './supabase'
 import { today, yesterday } from './srs'
 import { DEFAULT_SETTINGS, DEFAULT_STATS } from './types'
-import type { Activity, Card, Deck, GameKind, GrammarItem, Progress, Score, Settings, Stats, Verb } from './types'
+import type {
+  Activity,
+  Card,
+  Deck,
+  GameKind,
+  GrammarItem,
+  Progress,
+  Recipe,
+  RecipeProgress,
+  Score,
+  Settings,
+  Stats,
+  Verb,
+} from './types'
 
 function check<T>(res: { data: T | null; error: { message: string } | null }): T | null {
   if (res.error) throw new Error(res.error.message)
@@ -75,6 +88,42 @@ export async function saveSettings(userId: string, s: Settings) {
 export async function loadStats(userId: string): Promise<Stats> {
   const row = check(await supabase.from('lat_stats').select('*').eq('user_id', userId).maybeSingle())
   return row ?? DEFAULT_STATS
+}
+
+export async function loadRecipes(): Promise<Recipe[]> {
+  const rows = check(await supabase.from('lat_recipes').select('*').order('sort_order')) ?? []
+  return rows as Recipe[]
+}
+
+// Napredak u laboratoriji je dodatak: bez tabele laboratorija radi, samo bez pamćenja zvezdica.
+export async function loadRecipeProgress(userId: string): Promise<RecipeProgress[]> {
+  try {
+    return check(await supabase.from('lat_recipe_progress').select('recipe_slug,stars,plays').eq('user_id', userId)) ?? []
+  } catch {
+    return []
+  }
+}
+
+export async function saveRecipeResult(userId: string, slug: string, stars: number): Promise<{ best: number; improved: boolean }> {
+  try {
+    const row = check(
+      await supabase.from('lat_recipe_progress').select('stars,plays').eq('user_id', userId).eq('recipe_slug', slug).maybeSingle(),
+    ) as { stars: number; plays: number } | null
+    const prev = row?.stars ?? 0
+    const best = Math.max(prev, stars)
+    check(
+      await supabase.from('lat_recipe_progress').upsert({
+        user_id: userId,
+        recipe_slug: slug,
+        stars: best,
+        plays: (row?.plays ?? 0) + 1,
+        updated_at: new Date().toISOString(),
+      }),
+    )
+    return { best, improved: stars > prev }
+  } catch {
+    return { best: stars, improved: false }
+  }
 }
 
 // Rekordi su dodatak: ako tabela još ne postoji, igre rade, samo bez čuvanja rezultata.

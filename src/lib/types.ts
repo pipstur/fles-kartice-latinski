@@ -42,6 +42,30 @@ export interface Activity {
   xp: number
 }
 
+export interface RecipeStep {
+  prompt: string
+  answer: string
+}
+
+export interface Recipe {
+  id: string
+  slug: string
+  title: string
+  intro: string
+  icon: string
+  product: string
+  product_symbol: string
+  colors: string[] | null
+  steps: RecipeStep[]
+  sort_order: number
+}
+
+export interface RecipeProgress {
+  recipe_slug: string
+  stars: number
+  plays: number
+}
+
 export type GameKind = 'blitz' | 'pairs'
 
 export interface Score {

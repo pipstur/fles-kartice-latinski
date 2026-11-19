@@ -107,6 +107,15 @@ export function Home() {
               </div>
             </Link>
           </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.14 }} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
+            <Link to="/laboratorija" className="deck" data-theme="alchemy">
+              <span className="deck-icon">⚗️</span>
+              <div className="deck-body">
+                <h3>Alhemijska laboratorija</h3>
+                <p>Kuvaj recepte, sakupljaj proizvode u grimoar.</p>
+              </div>
+            </Link>
+          </motion.div>
         </div>
       </main>
     </>

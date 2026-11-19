@@ -1289,3 +1289,57 @@ values ('fero', 'nosim, trpim', 'ferre', 'irreg', '{"praes":["fero","fers","fert
 on conflict (lemma) do update set gloss = excluded.gloss, infinitive = excluded.infinitive,
   conj = excluded.conj, forms = excluded.forms;
 
+insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)
+values ('cetiri-elementa', 'Četiri elementa', 'Sve u svetu, tvrde alhemičari, sastoji se od četiri elementa i petog, nevidljivog. Prepoznaj ih redom.', '🌍', 'Kvintesencija', '🜀', '["#8d6e4a","#3b82c4","#e8742a","#bfe3f5","#f0d96b"]'::jsonb, '[{"prompt":"Najteži element, osnova svega čvrstog.","answer":"terra"},{"prompt":"Element koji teče i rastvara.","answer":"aqua"},{"prompt":"Element koji greje i preobražava.","answer":"ignis"},{"prompt":"Najlakši element, nevidljiv kao dah.","answer":"aer"},{"prompt":"Peti, pročišćeni element koji prožima sve.","answer":"quinta essentia"}]'::jsonb, 0)
+on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,
+  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,
+  steps = excluded.steps, sort_order = excluded.sort_order;
+
+insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)
+values ('sedam-metala', 'Sedam metala', 'Svaki od sedam poznatih metala pripadao je jednoj planeti. Spoji metal sa njegovim nebeskim vladarom.', '⛓️', 'Sedam planetarnih metala', '☉', '["#e8c547","#d8d8d8","#b8b8c8","#c9733a","#a03a2a","#8f9fa8","#555a63"]'::jsonb, '[{"prompt":"Metal Sunca.","answer":"aurum"},{"prompt":"Metal Meseca.","answer":"argentum"},{"prompt":"Metal Merkura, tečan na sobnoj temperaturi (doslovno „živo srebro“).","answer":"argentum vivum"},{"prompt":"Metal Venere.","answer":"cuprum"},{"prompt":"Metal Marsa.","answer":"ferrum"},{"prompt":"Metal Jupitera.","answer":"stannum"},{"prompt":"Metal Saturna, najteži i najsporiji.","answer":"plumbum"}]'::jsonb, 1)
+on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,
+  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,
+  steps = excluded.steps, sort_order = excluded.sort_order;
+
+insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)
+values ('tri-principa', 'Tri principa', 'Paracelzus je učio da se sve sastoji od tri principa. Prepoznaj ih po ulozi koju imaju.', '🔺', 'Tria prima', '🜍', '["#f0d040","#e8e8f0","#9fb8c8"]'::jsonb, '[{"prompt":"Princip goriva i duše, žut i zapaljiv.","answer":"sulphur"},{"prompt":"Princip tela i postojanosti.","answer":"sal"},{"prompt":"Princip promenljivosti i duha, ime planete i božanskog glasnika.","answer":"mercurius"}]'::jsonb, 2)
+on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,
+  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,
+  steps = excluded.steps, sort_order = excluded.sort_order;
+
+insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)
+values ('veliko-delo', 'Veliko delo', 'Opus magnum vodi materiju kroz četiri boje. Kamen mudraca nastaje tek na kraju poslednje faze.', '🜔', 'Kamen mudraca', '💎', '["#2b2b2b","#ececec","#e8c547","#b3261e"]'::jsonb, '[{"prompt":"Prva faza: crnjenje, rastakanje stare materije.","answer":"nigredo"},{"prompt":"Druga faza: beljenje, pročišćavanje.","answer":"albedo"},{"prompt":"Treća faza: žućenje, svitanje.","answer":"citrinitas"},{"prompt":"Završna faza: crvenjenje, savršenstvo.","answer":"rubedo"}]'::jsonb, 3)
+on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,
+  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,
+  steps = excluded.steps, sort_order = excluded.sort_order;
+
+insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)
+values ('carska-vodica', 'Carska vodica', 'Jedina tečnost koja rastvara zlato, kralja metala. Pripremi je po starom postupku.', '🜆', 'Carska vodica', '🜆', '["#e8d27a","#d9b84a","#c98a2a","#c9a227"]'::jsonb, '[{"prompt":"Počni od „jake vode“, azotne kiseline.","answer":"aqua fortis"},{"prompt":"Dodaj amonijum-hlorid, belu so po imenu nišador.","answer":"sal ammoniacum"},{"prompt":"Prelij smešu u sud za destilaciju, arapskog porekla.","answer":"alembicus"},{"prompt":"Dobijena tečnost, „kraljevska“, rastvara zlato.","answer":"aqua regia"}]'::jsonb, 4)
+on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,
+  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,
+  steps = excluded.steps, sort_order = excluded.sort_order;
+
+insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)
+values ('destilacija', 'Voda života', 'Destilacijom se vino pretvara u „vodu života“, to jest alkohol. Sastavi postupak.', '🜠', 'Aqua vitae', '🜈', '["#e8c3d0","#e9a0b8","#d8d2f0","#f4efe0"]'::jsonb, '[{"prompt":"Sud sa dugim vratom savijenim nadole, bez posebnog poklopca.","answer":"retorta"},{"prompt":"Donji deo alembika, doslovno „tikva“.","answer":"cucurbita"},{"prompt":"Postupak isparavanja i hlađenja pare u tečnost.","answer":"distillatio"},{"prompt":"Ponovljena destilacija istog tečnog ostatka.","answer":"cohobatio"}]'::jsonb, 5)
+on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,
+  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,
+  steps = excluded.steps, sort_order = excluded.sort_order;
+
+insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)
+values ('eliksir-zivota', 'Eliksir života', 'Najtraženiji lek ljudskog roda. Postupak vodi od prvobitne materije do učvršćenog eliksira.', '🧪', 'Elixir vitae', '🧪', '["#a67ad8","#7a9be0","#59c9a5","#e8c547","#e05a4a"]'::jsonb, '[{"prompt":"Polazna supstanca iz koje nastaje sve.","answer":"prima materia"},{"prompt":"Blago i dugo zagrevanje, kao varenje.","answer":"digestio"},{"prompt":"Odvajanje čistog od nečistog.","answer":"separatio"},{"prompt":"Spajanje suprotnosti, muškog i ženskog načela.","answer":"coniunctio"},{"prompt":"Pretvaranje isparljivog u postojano.","answer":"fixatio"}]'::jsonb, 6)
+on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,
+  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,
+  steps = excluded.steps, sort_order = excluded.sort_order;
+
+insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)
+values ('olovo-u-zlato', 'Olovo u zlato', 'San svakog alhemičara: transmutacija najnižeg metala u najplemenitiji.', '🥇', 'Zlato', '☉', '["#555a63","#c8c8c0","#9fb8c8","#d8b84a","#e8c547"]'::jsonb, '[{"prompt":"Metal koji treba preobraziti, metal Saturna.","answer":"plumbum"},{"prompt":"Žarenje do belog praha.","answer":"calcinatio"},{"prompt":"Rastvaranje praha u tečnosti.","answer":"solutio"},{"prompt":"Bacanje praha kamena na istopljeni metal.","answer":"projectio"},{"prompt":"Rezultat: metal Sunca.","answer":"aurum"}]'::jsonb, 7)
+on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,
+  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,
+  steps = excluded.steps, sort_order = excluded.sort_order;
+
+insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)
+values ('laboratorija', 'Opremanje laboratorije', 'Bez prave opreme nema Velikog dela. Prepoznaj alat po nameni.', '🏺', 'Alhemijska laboratorija', '🏺', '["#c9733a","#8f9fa8","#d8c9a0","#7aa8d8","#e8c547","#b3796a"]'::jsonb, '[{"prompt":"Alhemijska peć koja održava ravnomernu vatru.","answer":"athanor"},{"prompt":"Posuda za topljenje metala.","answer":"crucibulum"},{"prompt":"Sprava za raspirivanje vatre.","answer":"follis"},{"prompt":"Klešta za držanje užarenih posuda.","answer":"forceps"},{"prompt":"Posuda u kojoj se tuca i melje.","answer":"mortarium"},{"prompt":"Blago zagrevanje preko vodenog kupatila.","answer":"balneum Mariae"}]'::jsonb, 8)
+on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,
+  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,
+  steps = excluded.steps, sort_order = excluded.sort_order;
+

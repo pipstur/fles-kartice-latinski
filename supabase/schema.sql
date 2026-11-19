@@ -103,6 +103,32 @@ create table if not exists public.lat_scores (
   primary key (user_id, game, scope)
 );
 
+-- ------------------------------------------ alhemijska laboratorija (recepti)
+-- steps: [{"prompt": "opis koraka na srpskom", "answer": "latinski pojam"}, ...]
+-- colors: opciona lista boja tečnosti po koracima (inače podrazumevana paleta).
+create table if not exists public.lat_recipes (
+  id             uuid primary key default gen_random_uuid(),
+  slug           text unique not null,
+  title          text not null,
+  intro          text not null default '',
+  icon           text not null default '⚗️',
+  product        text not null,
+  product_symbol text not null default '⚗️',
+  colors         jsonb,
+  steps          jsonb not null,
+  sort_order     int not null default 0,
+  created_at     timestamptz not null default now()
+);
+
+create table if not exists public.lat_recipe_progress (
+  user_id      uuid not null references auth.users(id) on delete cascade,
+  recipe_slug  text not null,
+  stars        int  not null default 0 check (stars between 0 and 3),
+  plays        int  not null default 0,
+  updated_at   timestamptz not null default now(),
+  primary key (user_id, recipe_slug)
+);
+
 -- -------------------------------------------------- konjugacija (glagoli)
 -- forms: {"praes":[6 oblika], "impf":[...], "fut":[...], "perf":[...]}, redom 1.-3. lice jednine pa množine.
 create table if not exists public.lat_verbs (
@@ -136,6 +162,8 @@ alter table public.lat_admins enable row level security;
 alter table public.lat_verbs  enable row level security;
 alter table public.lat_activity enable row level security;
 alter table public.lat_scores   enable row level security;
+alter table public.lat_recipes  enable row level security;
+alter table public.lat_recipe_progress enable row level security;
 alter table public.lat_decks          enable row level security;
 alter table public.lat_cards          enable row level security;
 alter table public.lat_progress       enable row level security;
@@ -151,6 +179,15 @@ drop policy if exists "grammar read" on public.lat_grammar_items;
 create policy "decks read"   on public.lat_decks         for select to authenticated using (true);
 create policy "cards read"   on public.lat_cards         for select to authenticated using (true);
 create policy "grammar read" on public.lat_grammar_items for select to authenticated using (true);
+
+drop policy if exists "recipes read"  on public.lat_recipes;
+drop policy if exists "recipes admin" on public.lat_recipes;
+create policy "recipes read"  on public.lat_recipes for select to authenticated using (true);
+create policy "recipes admin" on public.lat_recipes for all to authenticated using (public.lat_is_admin()) with check (public.lat_is_admin());
+
+drop policy if exists "recipe progress own" on public.lat_recipe_progress;
+create policy "recipe progress own" on public.lat_recipe_progress
+  for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid());
 
 drop policy if exists "verbs read"  on public.lat_verbs;
 drop policy if exists "verbs admin" on public.lat_verbs;

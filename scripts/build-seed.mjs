@@ -90,7 +90,37 @@ for (const v of verbs) {
     `  conj = excluded.conj, forms = excluded.forms;\n\n`
 }
 
+// ----------------------------------- alhemijska laboratorija (seed/recipes.json)
+// Svaki traženi pojam mora postojati u dekovima: ili u seed/decks.json (Alhemija) ili u import/alhemija-2.txt.
+const known = new Set(decks.find((d) => d.slug === 'alhemija').cards.map((c) => c.latin))
+for (const line of readFileSync(new URL('../import/alhemija-2.txt', import.meta.url), 'utf8').split('\n')) {
+  const word = line.split(';')[0].trim()
+  if (word) known.add(word)
+}
+
+const recipeData = JSON.parse(readFileSync(new URL('../seed/recipes.json', import.meta.url), 'utf8'))
+const slugs = new Set()
+recipeData.recipes.forEach((r, i) => {
+  if (slugs.has(r.slug)) throw new Error(`recept ${r.slug}: ponavlja se slug`)
+  slugs.add(r.slug)
+  if (!r.steps?.length) throw new Error(`recept ${r.slug}: nema koraka`)
+  for (const s of r.steps) {
+    if (!s.prompt || !s.answer) throw new Error(`recept ${r.slug}: korak bez prompt/answer`)
+    if (!known.has(s.answer)) throw new Error(`recept ${r.slug}: "${s.answer}" ne postoji u dekovima (proveri pravopis ili dodaj karticu)`)
+  }
+  const answers = r.steps.map((s) => s.answer)
+  if (new Set(answers).size !== answers.length) throw new Error(`recept ${r.slug}: isti odgovor se ponavlja`)
+  sql +=
+    `insert into public.lat_recipes (slug, title, intro, icon, product, product_symbol, colors, steps, sort_order)\n` +
+    `values (${q(r.slug)}, ${q(r.title)}, ${q(r.intro)}, ${q(r.icon)}, ${q(r.product)}, ${q(r.product_symbol)}, ` +
+    `${r.colors ? q(JSON.stringify(r.colors)) + '::jsonb' : 'null'}, ${q(JSON.stringify(r.steps))}::jsonb, ${i})\n` +
+    `on conflict (slug) do update set title = excluded.title, intro = excluded.intro, icon = excluded.icon,\n` +
+    `  product = excluded.product, product_symbol = excluded.product_symbol, colors = excluded.colors,\n` +
+    `  steps = excluded.steps, sort_order = excluded.sort_order;\n\n`
+})
+
 writeFileSync(new URL('../supabase/seed.sql', import.meta.url), sql)
+console.log(`recepata: ${recipeData.recipes.length}, koraka: ${recipeData.recipes.reduce((n, r) => n + r.steps.length, 0)}`)
 if (process.argv.includes('--show')) for (const v of verbs) console.log(v.lemma.padEnd(8), JSON.stringify(v.forms))
 console.log(
   `seed.sql: ${decks.length} dekova, ${decks.reduce((n, d) => n + d.cards.length, 0)} kartica, ${sentenceCount} rečenica za padeže, ${verbs.length} glagola`,
