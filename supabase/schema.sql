@@ -144,6 +144,7 @@ create table if not exists public.lat_verbs (
 -- Dodato kasnije: gloss (prevod osnovnog oblika) i forms (svi oblici reči, za ponuđene odgovore).
 alter table public.lat_grammar_items add column if not exists gloss text;
 alter table public.lat_grammar_items add column if not exists forms text[] not null default '{}';
+alter table public.lat_grammar_items add column if not exists preposition text;  -- predlog ispred praznine (za vežbu predloga)
 create unique index if not exists lat_grammar_sentence_uq on public.lat_grammar_items(sentence);
 
 -- ------------------------------------------------------------------ admini

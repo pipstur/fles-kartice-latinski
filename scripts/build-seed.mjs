@@ -35,22 +35,50 @@ const arr = (list) => `array[${list.map(q).join(', ')}]::text[]`
 let sentenceCount = 0
 const seenSentences = new Set()
 
+// Predlozi (seed/prepositions.json): svaki oblik predloga -> padeži koje dozvoljava.
+const prepositions = JSON.parse(readFileSync(new URL('../seed/prepositions.json', import.meta.url), 'utf8'))
+const prepCases = new Map()
+for (const p of prepositions) for (const f of p.forms) prepCases.set(f, new Set(p.cases))
+
+function emitSentence(s, l) {
+  if (s.text.split('___').length !== 2) throw new Error(`"${s.text}": treba tačno jedno ___`)
+  if (seenSentences.has(s.text)) throw new Error(`"${s.text}": rečenica se ponavlja (mora biti jedinstvena)`)
+  seenSentences.add(s.text)
+  if (CASE_IDX[s.case] === undefined) throw new Error(`"${s.text}": nepoznat padež ${s.case}`)
+  const idx = CASE_IDX[s.case] + (s.number === 'pl' ? 5 : 0)
+
+  // Predlog je reč tik pre praznine. Ako je poznat, padež mora da se slaže sa njim (hvata moje greške).
+  const word = s.text.split('___')[0].trim().toLowerCase().split(/\s+/).pop().replace(/[^\p{L}]/gu, '')
+  const preposition = prepCases.has(word) ? word : null
+  if (preposition && !prepCases.get(preposition).has(s.case)) {
+    throw new Error(`"${s.text}": predlog "${preposition}" ne traži padež ${s.case}`)
+  }
+
+  sql +=
+    `insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms, preposition)\n` +
+    `values (${q(s.text)}, ${q(l.forms[idx])}, ${q(l.lemma)}, ${q(l.gloss)}, ${q(s.case)}, ${q(s.number)}, ${q(s.tr)}, ${arr([...new Set(l.forms)])}, ${q(preposition)})\n` +
+    `on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,\n` +
+    `  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms,\n` +
+    `  preposition = excluded.preposition;\n\n`
+  sentenceCount++
+  return preposition
+}
+
+const lemmaByName = new Map()
 for (const l of grammar.lemmas) {
   if (l.forms.length !== 10) throw new Error(`${l.lemma}: treba 10 oblika, ima ${l.forms.length}`)
-  const forms = [...new Set(l.forms)]
-  for (const s of l.sentences) {
-    if (s.text.split('___').length !== 2) throw new Error(`"${s.text}": treba tačno jedno ___`)
-    if (seenSentences.has(s.text)) throw new Error(`"${s.text}": rečenica se ponavlja (mora biti jedinstvena)`)
-    seenSentences.add(s.text)
-    const idx = CASE_IDX[s.case] + (s.number === 'pl' ? 5 : 0)
-    if (CASE_IDX[s.case] === undefined) throw new Error(`"${s.text}": nepoznat padež ${s.case}`)
-    sql +=
-      `insert into public.lat_grammar_items (sentence, answer, lemma, gloss, grammar_case, number, translation, forms)\n` +
-      `values (${q(s.text)}, ${q(l.forms[idx])}, ${q(l.lemma)}, ${q(l.gloss)}, ${q(s.case)}, ${q(s.number)}, ${q(s.tr)}, ${arr(forms)})\n` +
-      `on conflict (sentence) do update set answer = excluded.answer, lemma = excluded.lemma, gloss = excluded.gloss,\n` +
-      `  grammar_case = excluded.grammar_case, number = excluded.number, translation = excluded.translation, forms = excluded.forms;\n\n`
-    sentenceCount++
-  }
+  lemmaByName.set(l.lemma, l)
+  for (const s of l.sentences) emitSentence(s, l)
+}
+
+// Rečenice sa predlozima: ravna lista, oblici se uzimaju iz seed/grammar.json po lemi.
+const prepData = JSON.parse(readFileSync(new URL('../seed/grammar-prepositions.json', import.meta.url), 'utf8'))
+let prepCount = 0
+for (const s of prepData.sentences) {
+  const l = lemmaByName.get(s.lemma)
+  if (!l) throw new Error(`"${s.text}": lema "${s.lemma}" ne postoji u seed/grammar.json`)
+  if (!emitSentence(s, l)) throw new Error(`"${s.text}": ispred praznine nije poznat predlog`)
+  prepCount++
 }
 
 // --------------------------------------------- konjugacija (seed/verbs.json)
@@ -63,6 +91,9 @@ const ENDINGS = {
   4: { praes: ['io', 'is', 'it', 'imus', 'itis', 'iunt'], impf: ['iebam', 'iebas', 'iebat', 'iebamus', 'iebatis', 'iebant'], fut: ['iam', 'ies', 'iet', 'iemus', 'ietis', 'ient'] },
 }
 const PERF_ENDINGS = ['i', 'isti', 'it', 'imus', 'istis', 'erunt']
+// Pluskvamperfekat i futur II se prave od osnove perfekta.
+const PLUPF_ENDINGS = ['eram', 'eras', 'erat', 'eramus', 'eratis', 'erant']
+const FUTPERF_ENDINGS = ['ero', 'eris', 'erit', 'erimus', 'eritis', 'erint']
 
 const verbData = JSON.parse(readFileSync(new URL('../seed/verbs.json', import.meta.url), 'utf8'))
 const verbs = [
@@ -72,14 +103,21 @@ const verbs = [
     const make = (list) => list.map((end) => v.stem + end)
     return {
       lemma: v.lemma, gloss: v.gloss, inf: v.inf, conj: v.conj,
-      forms: { praes: make(e.praes), impf: make(e.impf), fut: make(e.fut), perf: PERF_ENDINGS.map((end) => v.perf + end) },
+      forms: {
+        praes: make(e.praes),
+        impf: make(e.impf),
+        fut: make(e.fut),
+        perf: PERF_ENDINGS.map((end) => v.perf + end),
+        plupf: PLUPF_ENDINGS.map((end) => v.perf + end),
+        futperf: FUTPERF_ENDINGS.map((end) => v.perf + end),
+      },
     }
   }),
   ...verbData.irregular.map((v) => ({ lemma: v.lemma, gloss: v.gloss, inf: v.inf, conj: 'irreg', forms: v.forms })),
 ]
 
 for (const v of verbs) {
-  for (const t of ['praes', 'impf', 'fut', 'perf']) {
+  for (const t of ['praes', 'impf', 'fut', 'perf', 'plupf', 'futperf']) {
     if (!Array.isArray(v.forms[t]) || v.forms[t].length !== 6) throw new Error(`${v.lemma}: ${t} treba 6 oblika`)
   }
   if (v.forms.praes[0] !== v.lemma) throw new Error(`${v.lemma}: 1. lice prezenta je "${v.forms.praes[0]}", ne poklapa se sa lemom`)
@@ -120,6 +158,7 @@ recipeData.recipes.forEach((r, i) => {
 })
 
 writeFileSync(new URL('../supabase/seed.sql', import.meta.url), sql)
+console.log(`recenica sa predlozima (nove): ${prepCount}`)
 console.log(`recepata: ${recipeData.recipes.length}, koraka: ${recipeData.recipes.reduce((n, r) => n + r.steps.length, 0)}`)
 if (process.argv.includes('--show')) for (const v of verbs) console.log(v.lemma.padEnd(8), JSON.stringify(v.forms))
 console.log(

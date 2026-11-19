@@ -10,6 +10,7 @@ import { Home } from './pages/Home'
 import { Lab } from './pages/Lab'
 import { Login } from './pages/Login'
 import { Pairs } from './pages/Pairs'
+import { Prepositions } from './pages/Prepositions'
 import { SettingsPage } from './pages/SettingsPage'
 import { Statistics } from './pages/Statistics'
 import { Study } from './pages/Study'
@@ -24,6 +25,7 @@ function Gate() {
       <Route path="/dek/:slug" element={<Study />} />
       <Route path="/padezi" element={<Grammar />} />
       <Route path="/konjugacija" element={<Conjugation />} />
+      <Route path="/predlozi" element={<Prepositions />} />
       <Route path="/laboratorija" element={<Lab />} />
       <Route path="/laboratorija/:slug" element={<Brew />} />
       <Route path="/blic" element={<Blitz />} />

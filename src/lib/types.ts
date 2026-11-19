@@ -34,6 +34,7 @@ export interface GrammarItem {
   number: 'sg' | 'pl'
   translation: string | null
   forms: string[]
+  preposition: string | null // predlog tik pre praznine, ako ga rečenica ima
 }
 
 export interface Activity {
@@ -75,7 +76,7 @@ export interface Score {
   plays: number
 }
 
-export type Tense = 'praes' | 'impf' | 'fut' | 'perf'
+export type Tense = 'praes' | 'impf' | 'fut' | 'perf' | 'plupf' | 'futperf'
 
 export interface Verb {
   id: string
@@ -83,7 +84,8 @@ export interface Verb {
   gloss: string
   infinitive: string
   conj: string
-  forms: Record<Tense, string[]> // 6 oblika po vremenu: 1.-3. lice jednine, pa množine
+  // 6 oblika po vremenu: 1.-3. lice jednine, pa množine. Starije baze mogu da nemaju plupf i futperf dok se ne pokrene seed.
+  forms: Partial<Record<Tense, string[]>>
 }
 
 export interface Progress {

@@ -409,6 +409,15 @@
         { "text": "Frater cum ___ ambulat.", "case": "abl", "number": "sg", "tr": "Brat šeta sa sestrom." },
         { "text": "Frater ___ rosam dat.", "case": "dat", "number": "sg", "tr": "Brat daje ružu sestri." }
       ]
-    }
+    },
+    { "lemma": "silva", "gloss": "šuma", "forms": ["silva", "silvae", "silvae", "silvam", "silva", "silvae", "silvarum", "silvis", "silvas", "silvis"], "sentences": [] },
+    { "lemma": "porta", "gloss": "kapija, vrata", "forms": ["porta", "portae", "portae", "portam", "porta", "portae", "portarum", "portis", "portas", "portis"], "sentences": [] },
+    { "lemma": "schola", "gloss": "škola", "forms": ["schola", "scholae", "scholae", "scholam", "schola", "scholae", "scholarum", "scholis", "scholas", "scholis"], "sentences": [] },
+    { "lemma": "mensa", "gloss": "sto", "forms": ["mensa", "mensae", "mensae", "mensam", "mensa", "mensae", "mensarum", "mensis", "mensas", "mensis"], "sentences": [] },
+    { "lemma": "murus", "gloss": "zid", "forms": ["murus", "muri", "muro", "murum", "muro", "muri", "murorum", "muris", "muros", "muris"], "sentences": [] },
+    { "lemma": "hortus", "gloss": "vrt", "forms": ["hortus", "horti", "horto", "hortum", "horto", "horti", "hortorum", "hortis", "hortos", "hortis"], "sentences": [] },
+    { "lemma": "pons", "gloss": "most", "forms": ["pons", "pontis", "ponti", "pontem", "ponte", "pontes", "pontium", "pontibus", "pontes", "pontibus"], "sentences": [] },
+    { "lemma": "mons", "gloss": "planina, brdo", "forms": ["mons", "montis", "monti", "montem", "monte", "montes", "montium", "montibus", "montes", "montibus"], "sentences": [] },
+    { "lemma": "navis", "gloss": "brod", "forms": ["navis", "navis", "navi", "navem", "nave", "naves", "navium", "navibus", "naves", "navibus"], "sentences": [] }
   ]
 }

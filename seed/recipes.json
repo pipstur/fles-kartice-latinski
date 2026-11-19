@@ -142,6 +142,124 @@
         { "prompt": "Posuda u kojoj se tuca i melje.", "answer": "mortarium" },
         { "prompt": "Blago zagrevanje preko vodenog kupatila.", "answer": "balneum Mariae" }
       ]
+    },
+    {
+      "slug": "sedam-operacija",
+      "title": "Sedam operacija",
+      "intro": "Alhemičari su materiju vodili kroz niz osnovnih postupaka. Prepoznaj ih po tome šta rade sa materijom.",
+      "icon": "🔥",
+      "product": "Ripleyjev svitak",
+      "product_symbol": "📜",
+      "colors": ["#d9d9d9", "#5bb0e0", "#c9a76a", "#a67ad8", "#3a3a3a", "#f0d96b", "#9fd8e8"],
+      "steps": [
+        { "prompt": "Žarenje materije do belog praha.", "answer": "calcinatio" },
+        { "prompt": "Rastvaranje čvrstog u tečnosti.", "answer": "solutio" },
+        { "prompt": "Odvajanje čistog od nečistog.", "answer": "separatio" },
+        { "prompt": "Spajanje odvojenih principa u jedno.", "answer": "coniunctio" },
+        { "prompt": "Truljenje, razgradnja radi nove forme.", "answer": "putrefactio" },
+        { "prompt": "Isparavanje čvrstog direktno u paru.", "answer": "sublimatio" },
+        { "prompt": "Zamrzavanje tečnosti u čvrsto.", "answer": "congelatio" }
+      ]
+    },
+    {
+      "slug": "hermeticka-tradicija",
+      "title": "Hermetička tradicija",
+      "intro": "Iza recepata stoji filozofija koja povezuje nebo i zemlju, čoveka i vasionu.",
+      "icon": "📜",
+      "product": "Hermetička tradicija",
+      "product_symbol": "☿",
+      "colors": ["#8f9fd8", "#4aa88a", "#c9a227", "#b3796a", "#e8e4d0"],
+      "steps": [
+        { "prompt": "Mitski utemeljivač alhemije, „triput najveći“.", "answer": "Hermes Trismegistus" },
+        { "prompt": "Temeljni hermetički spis, urezan na smaragdu.", "answer": "tabula smaragdina" },
+        { "prompt": "Čovek kao mali svet, slika vasione.", "answer": "microcosmus" },
+        { "prompt": "Vasiona, veliki svet.", "answer": "macrocosmus" },
+        { "prompt": "Duša koja prožima ceo svet.", "answer": "anima mundi" }
+      ]
+    },
+    {
+      "slug": "bestijarijum",
+      "title": "Alhemijski bestijarijum",
+      "intro": "Životinje su u alhemiji znaci faza i sila. Prepoznaj ih po tome šta predstavljaju.",
+      "icon": "🐉",
+      "product": "Alhemijski bestijarijum",
+      "product_symbol": "🐉",
+      "colors": ["#2b2b2b", "#f0f0f0", "#4aa88a", "#e8742a", "#8e44ad", "#5a7a3a"],
+      "steps": [
+        { "prompt": "Crna ptica, znak faze crnjenja.", "answer": "corvus" },
+        { "prompt": "Bela ptica, znak faze beljenja.", "answer": "cygnus" },
+        { "prompt": "Ptica raskošnog repa sa mnogo boja.", "answer": "pavo" },
+        { "prompt": "Ptica koja se rađa iz sopstvenog pepela.", "answer": "phoenix" },
+        { "prompt": "Krilato biće, znak isparljivog.", "answer": "draco" },
+        { "prompt": "Zmija koja proždire sopstveni rep, znak večnog kruženja.", "answer": "ouroboros" }
+      ]
+    },
+    {
+      "slug": "soli-i-kiseline",
+      "title": "Soli i kiseline",
+      "intro": "Alhemičarski ormar pun je belih soli, kiselih tečnosti i kristala. Prepoznaj ih po osobinama.",
+      "icon": "🧂",
+      "product": "Zbirka soli",
+      "product_symbol": "🜔",
+      "colors": ["#f4f0e0", "#e8d8a0", "#d8e8f0", "#c8d8c0", "#e8e0f0", "#f0e0d0", "#dde8e0"],
+      "steps": [
+        { "prompt": "„Jaka voda“, razara većinu metala.", "answer": "aqua fortis" },
+        { "prompt": "Kisela tečnost od vina.", "answer": "acetum" },
+        { "prompt": "Metalni sulfati, kasnije sumporna kiselina.", "answer": "vitriolum" },
+        { "prompt": "So koja se koristi i u barutu, šalitra.", "answer": "nitrum" },
+        { "prompt": "Stipsa.", "answer": "alumen" },
+        { "prompt": "Beli amonijum-hlorid.", "answer": "sal ammoniacum" },
+        { "prompt": "Arapsko ime za so koja topi metale, boraks.", "answer": "borax" }
+      ]
+    },
+    {
+      "slug": "boje-i-pigmenti",
+      "title": "Boje i pigmenti",
+      "intro": "Alhemičari su bili i slikari. Mnoge boje nastale su u njihovim pećima i lončićima.",
+      "icon": "🎨",
+      "product": "Paleta alhemičara",
+      "product_symbol": "🎨",
+      "colors": ["#e8c547", "#c0392b", "#f4f0e0", "#d85a3a", "#4aa88a", "#a02020"],
+      "steps": [
+        { "prompt": "Žuti arsenov sulfid, doslovno „zlatna boja“.", "answer": "auripigmentum" },
+        { "prompt": "Živin sulfid, crvena boja.", "answer": "cinnabaris" },
+        { "prompt": "Olovno belilo.", "answer": "cerussa" },
+        { "prompt": "Crveno olovo.", "answer": "minium" },
+        { "prompt": "Zelena patina na bakru.", "answer": "aerugo" },
+        { "prompt": "Crvena smola drveta, „zmajeva krv“.", "answer": "sanguis draconis" }
+      ]
+    },
+    {
+      "slug": "tinktura",
+      "title": "Tinktura",
+      "intro": "Tinktura je izvučena suština materije. Napravi je korak po korak.",
+      "icon": "🧴",
+      "product": "Tinktura",
+      "product_symbol": "🝈",
+      "colors": ["#b8d8e8", "#c9a76a", "#a67ad8", "#e8742a", "#c0392b"],
+      "steps": [
+        { "prompt": "Natapanje materije tečnošću.", "answer": "imbibitio" },
+        { "prompt": "Blago, dugotrajno zagrevanje.", "answer": "digestio" },
+        { "prompt": "Kruženje tečnosti kroz sud, para se vraća kao tečnost.", "answer": "circulatio" },
+        { "prompt": "Izvlačenje suštine iz materije.", "answer": "extractio" },
+        { "prompt": "Gotov proizvod: izvučena boja i suština.", "answer": "tinctura" }
+      ]
+    },
+    {
+      "slug": "ciscenje-materije",
+      "title": "Čišćenje materije",
+      "intro": "Prljava materija ne može da postane kamen mudraca. Očisti je kroz pet koraka.",
+      "icon": "🧹",
+      "product": "Čista materija",
+      "product_symbol": "🝣",
+      "colors": ["#6a5a45", "#8a8a7a", "#c8c8b8", "#e8e8d8", "#ffffff"],
+      "steps": [
+        { "prompt": "Talog koji se izdvaja iz tečnosti na dno.", "answer": "praecipitatio" },
+        { "prompt": "Uklanjanje nečistoće iz materije.", "answer": "purificatio" },
+        { "prompt": "Sprava od filca kroz koju se cedi tečnost.", "answer": "filtrum" },
+        { "prompt": "Ostatak posle destilacije, „mrtva glava“.", "answer": "caput mortuum" },
+        { "prompt": "Troska koja ostaje pri topljenju metala.", "answer": "scoria" }
+      ]
     }
   ]
 }

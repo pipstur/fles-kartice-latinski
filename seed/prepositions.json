@@ -1,0 +1,26 @@
+[
+  { "forms": ["ad"], "cases": ["acc"], "meaning": "k, ka, do" },
+  { "forms": ["ante"], "cases": ["acc"], "meaning": "ispred, pre" },
+  { "forms": ["apud"], "cases": ["acc"], "meaning": "kod" },
+  { "forms": ["circum"], "cases": ["acc"], "meaning": "oko" },
+  { "forms": ["contra"], "cases": ["acc"], "meaning": "protiv" },
+  { "forms": ["inter"], "cases": ["acc"], "meaning": "među, između" },
+  { "forms": ["per"], "cases": ["acc"], "meaning": "kroz, preko, putem" },
+  { "forms": ["post"], "cases": ["acc"], "meaning": "posle, iza" },
+  { "forms": ["propter"], "cases": ["acc"], "meaning": "zbog" },
+  { "forms": ["trans"], "cases": ["acc"], "meaning": "preko, s one strane" },
+  { "forms": ["extra"], "cases": ["acc"], "meaning": "izvan" },
+  { "forms": ["intra"], "cases": ["acc"], "meaning": "unutar" },
+  { "forms": ["prope"], "cases": ["acc"], "meaning": "blizu" },
+
+  { "forms": ["a", "ab"], "cases": ["abl"], "meaning": "od" },
+  { "forms": ["cum"], "cases": ["abl"], "meaning": "sa, zajedno sa" },
+  { "forms": ["de"], "cases": ["abl"], "meaning": "o, od, sa (odozgo)" },
+  { "forms": ["e", "ex"], "cases": ["abl"], "meaning": "iz" },
+  { "forms": ["pro"], "cases": ["abl"], "meaning": "za, umesto, ispred" },
+  { "forms": ["sine"], "cases": ["abl"], "meaning": "bez" },
+  { "forms": ["coram"], "cases": ["abl"], "meaning": "pred, u prisustvu" },
+
+  { "forms": ["in"], "cases": ["acc", "abl"], "meaning": "akuzativ: u, na (kretanje, kuda?). Ablativ: u, na (mirovanje, gde?)" },
+  { "forms": ["sub"], "cases": ["acc", "abl"], "meaning": "akuzativ: pod (kretanje, kuda?). Ablativ: ispod (mirovanje, gde?)" }
+]

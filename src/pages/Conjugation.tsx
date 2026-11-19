@@ -14,6 +14,8 @@ const TENSES: { key: Tense; label: string; hint: string }[] = [
   { key: 'impf', label: 'Imperfekt', hint: 'amabam…' },
   { key: 'fut', label: 'Futur', hint: 'amabo…' },
   { key: 'perf', label: 'Perfekat', hint: 'amavi…' },
+  { key: 'plupf', label: 'Pluskvamperfekat', hint: 'amaveram…' },
+  { key: 'futperf', label: 'Futur II', hint: 'amavero…' },
 ]
 const PRONOUNS = ['Ego', 'Tu', 'Is', 'Nos', 'Vos', 'Ei']
 const PERSON_SR = ['ja', 'ti', 'on/ona/ono', 'mi', 'vi', 'oni']
@@ -33,8 +35,9 @@ function loadTenses(): Tense[] {
 }
 
 function makeQuestions(verbs: Verb[], tenses: Tense[]): Question[] {
+  // Glagol bez oblika za izabrano vreme (stara baza pre novog seed-a) se preskače.
   const all = verbs.flatMap((v) =>
-    tenses.flatMap((t) => PRONOUNS.map((_, p) => ({ v, t, p }))),
+    tenses.flatMap((t) => (v.forms[t]?.length === 6 ? PRONOUNS.map((_, p) => ({ v, t, p })) : [])),
   )
   return shuffle(all)
     .slice(0, SESSION_SIZE)
@@ -42,8 +45,8 @@ function makeQuestions(verbs: Verb[], tenses: Tense[]): Question[] {
       id: `${v.id}:${t}:${p}`,
       before: `${PRONOUNS[p]} `,
       after: '.',
-      answer: v.forms[t][p],
-      forms: [...new Set(v.forms[t])],
+      answer: v.forms[t]![p],
+      forms: [...new Set(v.forms[t]!)],
       lemmaLine: (
         <>
           <b>{v.infinitive}</b> · {v.gloss}

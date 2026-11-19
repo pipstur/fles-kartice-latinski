@@ -41,7 +41,9 @@
         "praes": ["sum", "es", "est", "sumus", "estis", "sunt"],
         "impf": ["eram", "eras", "erat", "eramus", "eratis", "erant"],
         "fut": ["ero", "eris", "erit", "erimus", "eritis", "erunt"],
-        "perf": ["fui", "fuisti", "fuit", "fuimus", "fuistis", "fuerunt"]
+        "perf": ["fui", "fuisti", "fuit", "fuimus", "fuistis", "fuerunt"],
+        "plupf": ["fueram", "fueras", "fuerat", "fueramus", "fueratis", "fuerant"],
+        "futperf": ["fuero", "fueris", "fuerit", "fuerimus", "fueritis", "fuerint"]
       }
     },
     {
@@ -50,7 +52,9 @@
         "praes": ["possum", "potes", "potest", "possumus", "potestis", "possunt"],
         "impf": ["poteram", "poteras", "poterat", "poteramus", "poteratis", "poterant"],
         "fut": ["potero", "poteris", "poterit", "poterimus", "poteritis", "poterunt"],
-        "perf": ["potui", "potuisti", "potuit", "potuimus", "potuistis", "potuerunt"]
+        "perf": ["potui", "potuisti", "potuit", "potuimus", "potuistis", "potuerunt"],
+        "plupf": ["potueram", "potueras", "potuerat", "potueramus", "potueratis", "potuerant"],
+        "futperf": ["potuero", "potueris", "potuerit", "potuerimus", "potueritis", "potuerint"]
       }
     },
     {
@@ -59,7 +63,9 @@
         "praes": ["eo", "is", "it", "imus", "itis", "eunt"],
         "impf": ["ibam", "ibas", "ibat", "ibamus", "ibatis", "ibant"],
         "fut": ["ibo", "ibis", "ibit", "ibimus", "ibitis", "ibunt"],
-        "perf": ["ii", "isti", "iit", "iimus", "istis", "ierunt"]
+        "perf": ["ii", "isti", "iit", "iimus", "istis", "ierunt"],
+        "plupf": ["ieram", "ieras", "ierat", "ieramus", "ieratis", "ierant"],
+        "futperf": ["iero", "ieris", "ierit", "ierimus", "ieritis", "ierint"]
       }
     },
     {
@@ -68,7 +74,9 @@
         "praes": ["volo", "vis", "vult", "volumus", "vultis", "volunt"],
         "impf": ["volebam", "volebas", "volebat", "volebamus", "volebatis", "volebant"],
         "fut": ["volam", "voles", "volet", "volemus", "voletis", "volent"],
-        "perf": ["volui", "voluisti", "voluit", "voluimus", "voluistis", "voluerunt"]
+        "perf": ["volui", "voluisti", "voluit", "voluimus", "voluistis", "voluerunt"],
+        "plupf": ["volueram", "volueras", "voluerat", "volueramus", "volueratis", "voluerant"],
+        "futperf": ["voluero", "volueris", "voluerit", "voluerimus", "volueritis", "voluerint"]
       }
     },
     {
@@ -77,7 +85,9 @@
         "praes": ["fero", "fers", "fert", "ferimus", "fertis", "ferunt"],
         "impf": ["ferebam", "ferebas", "ferebat", "ferebamus", "ferebatis", "ferebant"],
         "fut": ["feram", "feres", "feret", "feremus", "feretis", "ferent"],
-        "perf": ["tuli", "tulisti", "tulit", "tulimus", "tulistis", "tulerunt"]
+        "perf": ["tuli", "tulisti", "tulit", "tulimus", "tulistis", "tulerunt"],
+        "plupf": ["tuleram", "tuleras", "tulerat", "tuleramus", "tuleratis", "tulerant"],
+        "futperf": ["tulero", "tuleris", "tulerit", "tulerimus", "tuleritis", "tulerint"]
       }
     }
   ]
