@@ -66,3 +66,15 @@ export function pickPairs(pool: Card[], n = PAIRS): Card[] {
 export function pairsScore(mistakes: number, seconds: number, n = PAIRS): number {
   return Math.max(0, n * 100 + Math.max(0, 60 - seconds) * 5 - mistakes * 50)
 }
+
+// Opseg igre: 'all' ili slugovi izabranih dekova spojeni zarezom (sortirani).
+export function scopeOf(selected: string[], allSlugs: string[]): string {
+  if (selected.length === allSlugs.length) return 'all'
+  return [...selected].sort().join(',')
+}
+
+export function poolFor(scope: string, decks: { id: string; slug: string }[], cards: Card[]): Card[] {
+  if (scope === 'all') return cards
+  const ids = new Set(decks.filter((d) => scope.split(',').includes(d.slug)).map((d) => d.id))
+  return cards.filter((c) => ids.has(c.deck_id))
+}

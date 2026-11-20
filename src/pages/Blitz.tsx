@@ -5,7 +5,7 @@ import confetti from 'canvas-confetti'
 import { GameSetup } from '../components/GameSetup'
 import { useAuth } from '../auth'
 import { addStudy, loadCards, loadDecks, loadScores, loadSettings, saveScore } from '../lib/api'
-import { BLITZ_SECONDS, makeQuestion, multiplier, POINTS_PER_ANSWER, shuffledOrder } from '../lib/games'
+import { BLITZ_SECONDS, makeQuestion, multiplier, POINTS_PER_ANSWER, shuffledOrder, poolFor } from '../lib/games'
 import type { BlitzQuestion } from '../lib/games'
 import { play } from '../lib/sound'
 import type { Card, Deck, Score } from '../lib/types'
@@ -97,8 +97,7 @@ export function Blitz() {
   }, [sound, userId, scope])
 
   function start(chosen: string) {
-    const deckId = decks?.find((d) => d.slug === chosen)?.id
-    pool.current = chosen === 'all' ? cards : cards.filter((c) => c.deck_id === deckId)
+    pool.current = poolFor(chosen, decks ?? [], cards)
     order.current = []
     idx.current = 0
     lastId.current = undefined
@@ -285,7 +284,7 @@ export function Blitz() {
           </div>
           {result?.streak != null && <p className="muted">🔥 {result.streak} dana zaredom</p>}
           <button className="btn primary wide" onClick={() => start(scope)}>Još jedna runda</button>
-          <button className="btn wide" onClick={() => setPhase('setup')}>Promeni dek</button>
+          <button className="btn wide" onClick={() => setPhase('setup')}>Promeni dekove</button>
           <Link to="/" className="btn wide">Nazad</Link>
         </motion.div>
       )}

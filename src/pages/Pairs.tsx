@@ -5,7 +5,7 @@ import confetti from 'canvas-confetti'
 import { GameSetup } from '../components/GameSetup'
 import { useAuth } from '../auth'
 import { addStudy, loadCards, loadDecks, loadScores, loadSettings, saveScore } from '../lib/api'
-import { pairsScore, pickPairs } from '../lib/games'
+import { pairsScore, pickPairs, poolFor } from '../lib/games'
 import { shuffle } from '../lib/srs'
 import { play } from '../lib/sound'
 import type { Card, Deck, Score } from '../lib/types'
@@ -69,8 +69,7 @@ export function Pairs() {
   }, [phase])
 
   function start(chosen: string) {
-    const deckId = decks?.find((d) => d.slug === chosen)?.id
-    const pool = chosen === 'all' ? cards : cards.filter((c) => c.deck_id === deckId)
+    const pool = poolFor(chosen, decks ?? [], cards)
     const picked = pickPairs(pool)
     setScope(chosen)
     setBoard(picked)
@@ -218,7 +217,7 @@ export function Pairs() {
           </div>
           {result && <p className="muted">Rekord: {result.best}{result.streak != null && ` · 🔥 ${result.streak} dana zaredom`}</p>}
           <button className="btn primary wide" onClick={() => start(scope)}>Nova tabla</button>
-          <button className="btn wide" onClick={() => setPhase('setup')}>Promeni dek</button>
+          <button className="btn wide" onClick={() => setPhase('setup')}>Promeni dekove</button>
           <Link to="/" className="btn wide">Nazad</Link>
         </motion.div>
       )}
