@@ -64,10 +64,8 @@ export function GameSetup({ game, icon, title, description, minCards, decks, car
           {decks.map((d) => {
             const on = selected.includes(d.slug)
             return (
-              <button key={d.slug} className={`option check ${on ? 'on' : ''}`} onClick={() => toggle(d.slug)} aria-pressed={on}>
-                <b>
-                  <span className="box">{on ? '✓' : ''}</span> {d.icon} {d.title}
-                </b>
+              <button key={d.slug} className={`option ${on ? 'on' : ''}`} onClick={() => toggle(d.slug)} aria-pressed={on}>
+                <b>{d.icon} {d.title}</b>
                 <span>{perDeck(d.id)} kartica</span>
               </button>
             )
