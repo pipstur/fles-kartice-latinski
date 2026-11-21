@@ -64,7 +64,7 @@ export function pickPairs(pool: Card[], n = PAIRS): Card[] {
 
 // 100 po paru, bonus za brzinu (do 60 s), 50 kazne po grešci.
 export function pairsScore(mistakes: number, seconds: number, n = PAIRS): number {
-  return Math.max(0, n * 100 + Math.max(0, 60 - seconds) * 5 - mistakes * 50)
+  return Math.max(0, Math.round(n * 100 + Math.max(0, 60 - seconds) * 5 - mistakes * 50))
 }
 
 // Opseg igre: 'all' ili slugovi izabranih dekova spojeni zarezom (sortirani).
